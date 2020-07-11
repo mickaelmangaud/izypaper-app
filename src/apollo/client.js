@@ -2,7 +2,7 @@ import React from 'react';
 import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const link = new HttpLink({
-  uri: 'http://localhost:5000/graphql',
+  uri: `${process.env.BASE_API_URL}`,
   credentials: 'include'
 });
 
