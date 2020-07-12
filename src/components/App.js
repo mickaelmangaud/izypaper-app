@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 import { ApolloWrapper } from '../apollo';
 import { Login } from '../screens';
 import { ContextProvider } from '../context';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../utils';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -13,12 +15,14 @@ const GlobalStyles = createGlobalStyle`
 
 const App = () => {
   return (
-    <ContextProvider>
-      <ApolloWrapper>
-        <GlobalStyles />
-        <Login />
-      </ApolloWrapper>
-    </ContextProvider>
+    <ThemeProvider theme={theme}>
+      <ContextProvider>
+        <ApolloWrapper>
+          <GlobalStyles />
+          <Login />
+        </ApolloWrapper>
+      </ContextProvider>
+    </ThemeProvider>
   );
 };
 
