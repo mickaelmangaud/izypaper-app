@@ -5,7 +5,6 @@ import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const { context } = useContext(Context);
-  console.log('user', context);
   return (
     <Route
       {...rest}
@@ -20,8 +19,8 @@ export const Router = () => {
   return(
     <BrowserRouter basename="app.izypaper.com/">
       <Switch>
-        <Route path='https://app.izypaper.com/login' component={Login} />
-        <AuthRoute path='https://app.izypaper.com/login' component={Dashboard} />
+        <Route path='app.izypaper.com/login' component={Login} />
+        <AuthRoute path='app.izypaper.com/login' component={Dashboard} />
         <Route path='*' component={NotFound404} />
       </Switch>
     </BrowserRouter>
