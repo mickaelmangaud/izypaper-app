@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Login, Dashboard } from '../screens';
+import { Login, Dashboard, NotFound404 } from '../screens';
 import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
@@ -18,10 +18,11 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="app.izypaper.com/">
       <Switch>
-        <Route path='/login' component={Login} />
-        <AuthRoute path='/dashboard' component={Dashboard} />
+        <Route path='https://app.izypaper.com/login' component={Login} />
+        <AuthRoute path='https://app.izypaper.com/login' component={Dashboard} />
+        <Route path='*' component={NotFound404} />
       </Switch>
     </BrowserRouter>
   )
