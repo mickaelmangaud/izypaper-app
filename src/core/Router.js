@@ -18,7 +18,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-    <BrowserRouter history={history} basename={process.env.PUBLIC_URL}>
+    <BrowserRouter history={history}>
       <Switch>
         <Route path='/app' component={Login} />
         <AuthRoute path='/app/dashboard' component={Dashboard} />
