@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Login, Dashboard, NotFound404 } from '../screens';
 import { Context } from '../context';
+import { history } from './history';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const { context } = useContext(Context);
@@ -17,10 +18,10 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Switch>
-        <Route path='/login' component={Login} />
-        <AuthRoute path='/dashboard' component={Dashboard} />
+        <Route path='/app' component={Login} />
+        <AuthRoute path='/app/dashboard' component={Dashboard} />
         <Route path='*' component={NotFound404} />
       </Switch>
     </BrowserRouter>
