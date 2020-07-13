@@ -1,14 +1,37 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const Context = createContext(null);
 
 export const ContextProvider =  ({ children }) => {
   const [context, setContext] = useState({
-    menuOpen: false,  
+    menuOpen: false,
+    auth: {
+      isAuthenticated: false,
+      user: null,
+      error: null,
+    },
   });
 
+  useEffect(() => {
+    const addSessionUserToContext = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/auth/user', { withCredentials: true });
+        setContext( context =>
+          ({ ...context, auth: { error: null, user: response.data.user, isAuthenticated: true } })
+        )
+      } catch (error) {
+        setContext(
+          context => 
+            ({ ...context, auth: { error: error.message, user: null, isAuthenticated: false } })
+        )
+      }
+    }
+
+    addSessionUserToContext();
+  }, []);
+
   console.log('ContextProvider : ', context);
-  
   return (
     <Context.Provider value={{context, setContext}}>
       {children}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { ApolloWrapper } from '../apollo';
-import { Login } from '../screens';
 import { ContextProvider } from '../context';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../utils';
+import { Router } from './Router';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -13,17 +13,15 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const App = () => {
+export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ContextProvider>
         <ApolloWrapper>
           <GlobalStyles />
-          <Login />
+          <Router />
         </ApolloWrapper>
       </ContextProvider>
     </ThemeProvider>
   );
 };
-
-export default App;
