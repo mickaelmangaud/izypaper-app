@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { Login, Dashboard, NotFound404 } from '../screens';
 import { Context } from '../context';
 
@@ -17,12 +17,12 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-    <BrowserRouter basename="app.izypaper.com/">
+    <HashRouter>
       <Switch>
         <Route path='app.izypaper.com/login' component={Login} />
         <AuthRoute path='app.izypaper.com/login' component={Dashboard} />
         <Route path='*' component={NotFound404} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   )
 };
