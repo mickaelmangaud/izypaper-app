@@ -20,7 +20,7 @@ export const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route path='/login' component={Login} />
-        <AuthRoute path='/login' component={Dashboard} />
+        <AuthRoute path='/dashboard' component={Dashboard} />
         <Route path='*' component={NotFound404} />
       </Switch>
     </BrowserRouter>
