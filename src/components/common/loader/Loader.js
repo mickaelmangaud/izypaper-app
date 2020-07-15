@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { LoaderWrapper } from './styled';
-import { UiContext } from '../../context';
+import { UiContext } from '../../../context';
 
 const Loader = () => {
   const { uiContext } = useContext(UiContext);
