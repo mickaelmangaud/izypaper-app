@@ -3,18 +3,26 @@ import axios from 'axios';
 
 export const Context = createContext(null);
 
-export const ContextProvider =  ({ children }) => {
-  const [context, setContext] = useState({
-    menuOpen: false,
-    auth: {
-      isAuthenticated: false,
-      user: null,
-      error: null,
-    },
-  });
+const defaultValue = {
+  menuOpen: false,
+  auth: {
+    isAuthenticated: false,
+    user: null,
+    error: null,
+  },
+};
 
-  console.log('CONTEXT PROVIDER : ', context);
+export const ContextProvider =  ({ children }) => {
+  const [context, setContext] = useState(
+    JSON.parse(localStorage.getItem('izypaper-app_context')) || defaultValue
+  );
+
+  /* Enable context persistence on window reload */
+  useEffect(() => {
+    localStorage.setItem('izypaper-app_context', JSON.stringify(context));
+  }, [context])
   
+  /* Add expression-session user to context if user is logged in */
   useEffect(() => {
     const addSessionUserToContext = async () => {
       try {
