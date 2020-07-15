@@ -26,7 +26,7 @@ export const Login = () => {
 
   const login = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/user`, {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, {
         email: 'mickaelmangaud@gmail.com',
         password: 'okcomputer'
       }, { withCredentials: true });
