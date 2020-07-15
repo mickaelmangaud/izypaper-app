@@ -25,14 +25,9 @@ export const ContextProvider =  ({ children }) => {
     const addSessionUserToContext = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/user`, { withCredentials: true });
-        setContext( context =>
-          ({ ...context, auth: { error: null, user: response.data.user, isAuthenticated: true } })
-        )
+        setContext( context => ({ ...context, auth: { error: null, user: response.data.user, isAuthenticated: true } }))
       } catch (error) {
-        setContext(
-          context => 
-            ({ ...context, auth: { error: error.message, user: null, isAuthenticated: false } })
-        )
+        setContext( context => ({ ...context, auth: { error: error.message, user: null, isAuthenticated: false } }))
       }
     }
 
