@@ -31,25 +31,19 @@ export const Login = () => {
         password: 'okcomputer'
       }, { withCredentials: true });
 
-      setContext( context => ({
-        ...context,
-        auth: {
-          isAuthenticated: true,
-          user: response.data.user,
-          error: null
-        }
-      }))
-
+      setContext( context => ({ ...context, auth: { isAuthenticated: true, user: response.data.user, error: null }}));
 
     } catch (error) {
-      setContext( context => ({
-        ...context,
-        auth: {
-          isAuthenticated: false,
-          user: null,
-          error: error.message
-        }
-      }))
+      setContext( context => ({ ...context, auth: { isAuthenticated: false, user: null, error: error.message }}));
+    }
+  }
+
+  const logout = async () => {
+    try {
+      await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/logout`, { withCredentials: true });
+      setContext( context => ({ ...context, auth: { isAuthenticated: false, user: null, error: null }}));
+    } catch (error) {
+      console.log('LOGOUT', error);
     }
   }
 
@@ -59,11 +53,16 @@ export const Login = () => {
         <Link to="dashboard" >dashboard</Link>
       </div>
       <div className="form">
-        <div 
+        <button 
           onClick={login}
           className="login">
           login
-        </div>
+        </button>
+        <button 
+          onClick={logout}
+          className="login">
+          logout
+        </button>
 
       </div>
     </LoginWrapper>
