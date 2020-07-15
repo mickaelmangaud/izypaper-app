@@ -14,12 +14,12 @@ const defaultValue = {
 
 export const ContextProvider =  ({ children }) => {
   const [context, setContext] = useState(
-    JSON.parse(localStorage.getItem('izypaper-app_context')) || defaultValue
+    JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue
   );
 
   /* Enable context persistence on window reload */
   useEffect(() => {
-    localStorage.setItem('izypaper-app_context', JSON.stringify(context));
+    localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(context));
   }, [context])
   
   /* Add expression-session user to context if user is logged in */
