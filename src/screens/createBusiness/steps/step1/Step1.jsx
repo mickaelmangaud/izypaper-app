@@ -5,7 +5,7 @@ export const Step1 = ({ setBusinnes }) => {
     <div>
       <h1>Je choisis mon pays</h1>
       <button>Cameroun</button>
-      <button>Cote d'Ivoire</button>
+      <button>Burkina Faso</button>
       <button>Bénin</button>
       <button>Togo</button>
     </div>
