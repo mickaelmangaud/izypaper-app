@@ -19,10 +19,10 @@ export const Router = () => {
   return(
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path='/login' component={Login} />
+        <Route path="/login" component={Login} />
         <Route path="/creer-mon-entreprise" component={CreateBusiness} />
-        <AuthRoute path='/dashboard' component={Dashboard} />
-        <Route path='*' component={NotFound404} />
+        <AuthRoute path="/dashboard" component={Dashboard} />
+        <Route path="*" component={NotFound404} />
       </Switch>
   )
 };
