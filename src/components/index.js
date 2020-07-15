@@ -1,1 +1,1 @@
-export { default as App } from './App';
+export { Navigation, Input } from './common';

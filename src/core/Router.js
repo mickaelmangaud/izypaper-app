@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Login, Dashboard, NotFound404 } from '../screens';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { Login, Dashboard, NotFound404, CreateBusiness, Home } from '../screens';
 import { Context } from '../context';
-import { history } from './history';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const { context } = useContext(Context);
@@ -18,12 +17,12 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-    <BrowserRouter history={history} basename='/app/'>
       <Switch>
-        <Route path='/app' component={Login} />
-        <AuthRoute path='/app/dashboard' component={Dashboard} />
+        <Route exact path="/" component={Home} />
+        <Route path='/login' component={Login} />
+        <Route path="/creer-mon-entreprise" component={CreateBusiness} />
+        <AuthRoute path='/dashboard' component={Dashboard} />
         <Route path='*' component={NotFound404} />
       </Switch>
-    </BrowserRouter>
   )
 };
