@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Login, Dashboard, NotFound404, CreateBusiness, Home } from '../screens';
+import { Login, Dashboard, NotFound404, CreateBusiness, Home, Register } from '../screens';
 import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
@@ -19,6 +19,7 @@ export const Router = () => {
   return(
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/inscription" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/creer-mon-entreprise" component={CreateBusiness} />
         <AuthRoute path="/dashboard" component={Dashboard} />
