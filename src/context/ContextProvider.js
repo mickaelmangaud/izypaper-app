@@ -13,6 +13,8 @@ export const ContextProvider =  ({ children }) => {
     },
   });
 
+  console.log('CONTEXT PROVIDER : ', context);
+  
   useEffect(() => {
     const addSessionUserToContext = async () => {
       try {

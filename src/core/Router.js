@@ -5,6 +5,8 @@ import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const { context } = useContext(Context);
+  console.log('AUTH ROUTE', context.auth.isAuthenticated);
+
   return (
     <Route
       {...rest}
