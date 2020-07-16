@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../context';
 import axios from 'axios';
 
-
 const LoginWrapper = styled.div`
   display: flex;
   height: 100vh;
@@ -17,9 +16,7 @@ const LoginWrapper = styled.div`
     background-color: ${({theme}) => theme.colors.primary};
   }
 
-  .form {
-    flex: 1;
-  }
+  .form { flex: 1 }
 `;
 
 export const Login = () => {

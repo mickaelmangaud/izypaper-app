@@ -27,8 +27,6 @@ export const Navigation = () => {
   const { context, setContext } = React.useContext(Context);
   const toggleDrawer = () => setContext({ ...context, drawerOpen: !context.drawerOpen });
   const handleClickBurger = () => setContext( context => ({ ...context, sideMenuOpen: !context.sideMenuOpen }));
-  
-  console.log('handleClickBurger', context.sideMenuOpen);
 
   return (
     <NavigationWrapper>

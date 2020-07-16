@@ -34,7 +34,6 @@ export const ContextProvider =  ({ children }) => {
     addSessionUserToContext();
   }, []);
 
-  // console.log('ContextProvider : ', context);
   return (
     <Context.Provider value={{context, setContext}}>
       {children}
