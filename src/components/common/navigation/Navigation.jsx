@@ -1,18 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const NavigationWrapper = styled.div`
-  background-color: #048b9a;
-  height: 60px;
-  box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
-`;
+import { NavigationWrapper } from './styled';
+import { Drawer } from './drawer';
+import { Context } from '../../../context';
 
 export const Navigation = () => {
+  const { context, setContext } = React.useContext(Context);
+  const toggleMenu = () => setContext({ ...context, menuOpen: !context.menuOpen });
+
   return (
     <NavigationWrapper>
-      <Link to="/">Home</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/creer-mon-entreprise">Créer mon entreprise</Link>
+      <Drawer open={context.menuOpen}/>
+      <div className="burger">
+        <span className="material-icons"  onClick={toggleMenu}>
+          {!context.menuOpen ? 'menu' : 'menu_open'}
+        </span>
+      </div>
+      <h1 className="app-title">Izypaper</h1>
+      <div className="icons">
+        <span className="material-icons icon">
+          mail
+        </span>
+        <span className="material-icons icon">
+          add_alert
+        </span>
+        <span className="material-icons icon">
+          account_circle
+        </span>
+      </div>
     </NavigationWrapper>
   )
 };

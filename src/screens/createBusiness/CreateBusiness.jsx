@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ScreenWrapper } from '../../components';
 import { Step1, Step2, Step3 } from './steps';
 
-
 export const CreateBusiness = () => {
   const [step, setStep] = useState(1);
+  
   const [business, setBusiness] = useState({
     country: null,
     type: null,

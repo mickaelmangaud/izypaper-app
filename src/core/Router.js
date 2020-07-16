@@ -5,13 +5,13 @@ import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const { context } = useContext(Context);
-  console.log('AUTH ROUTE', context.auth.isAuthenticated);
-
   return (
     <Route
       {...rest}
-      render={(props) =>
-        !context.auth.isAuthenticated ? <Redirect to="/login" /> : <Component {...props} />
+      render={(props) => 
+        !context.auth.isAuthenticated 
+        ? <Redirect to="/login" /> 
+        : <Component {...props} />
       }
     />
   );
@@ -19,13 +19,13 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 
 export const Router = () => {
   return(
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/inscription" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/creer-mon-entreprise" component={CreateBusiness} />
-        <AuthRoute path="/dashboard" component={Dashboard} />
-        <Route path="*" component={NotFound404} />
-      </Switch>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/inscription" component={Register} />
+      <Route path="/login" component={Login} />
+      <Route path="/creer-mon-entreprise" component={CreateBusiness} />
+      <AuthRoute path="/dashboard" component={Dashboard} />
+      <Route path="*" component={NotFound404} />
+    </Switch>
   )
 };

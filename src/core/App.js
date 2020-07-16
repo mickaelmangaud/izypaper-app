@@ -16,6 +16,14 @@ const GlobalStyles = createGlobalStyle`
     user-select: none;
     outline: none;
     font-family: 'Ubuntu', sans-serif;
+    color: rgba(0,0,0, .85);
+  }
+
+  body, #root {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #eee;
   }
 `;
 
