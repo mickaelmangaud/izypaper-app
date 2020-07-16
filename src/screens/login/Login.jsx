@@ -56,13 +56,16 @@ const LoginWrapper = styled.div`
         background-color: ${({ theme}) => theme.colors.primary };
         color: white;
         font-size: 18px;
+        &:hover {
+          background-color: ${({ theme }) => `rgba(${theme.colors.primary}, .2)`};
+        }
       }
     }
   }
 `;
 
 export const Login = () => {
-  const { setContext } = useContext(Context);
+  const { context, setContext } = useContext(Context);
   const history = useHistory();
 
   const login = async evt => {
@@ -72,9 +75,10 @@ export const Login = () => {
         email: 'mickaelmangaud@gmail.com',
         password: 'okcomputer'
       }, { withCredentials: true });
-
+      setContext({ ...context, loaderDisplayed: true });
       history.push('/dashboard');
       setContext( context => ({ ...context, auth: { isAuthenticated: true, user: response.data.user, error: null }}));
+      setTimeout(() => setContext({ ...context, loaderDisplayed: false }), 800);
     } catch (error) {
       setContext( context => ({ ...context, auth: { isAuthenticated: false, user: null, error: error.message }}));
     }

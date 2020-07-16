@@ -7,7 +7,7 @@ export const LoaderWrapper = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: #048b9a;
+  background-color: ${({ theme }) => theme.colors.primary};
   top: 0;
 
   svg {

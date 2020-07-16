@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { LoaderWrapper } from './styled';
-import { UiContext } from '../../../context';
+import { Context } from '../../../context';
 
 const Loader = () => {
-  const { uiContext } = useContext(UiContext);
+  const { context } = useContext(Context);
   return (
-    <LoaderWrapper displayed={uiContext.loaderDisplayed}>
+    <LoaderWrapper displayed={context.loaderDisplayed}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0"

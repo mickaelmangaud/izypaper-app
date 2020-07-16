@@ -4,6 +4,8 @@ import axios from 'axios';
 export const Context = createContext(null);
 
 const defaultValue = {
+  loaderDisplayed: false,
+  sideMenuOpen: false,
   drawerOpen: false,
   auth: {
     isAuthenticated: false,
