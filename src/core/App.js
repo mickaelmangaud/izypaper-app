@@ -3,9 +3,9 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ApolloWrapper } from '../apollo';
 import { ContextProvider } from '../context';
 import { theme } from '../utils';
-import { Router } from './Router';
+import { AppRouter } from './Router';
 import { Navigation, Drawer, SideMenu } from '../components';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { history } from '../core';
 
 const GlobalStyles = createGlobalStyle`
@@ -34,12 +34,12 @@ export const App = () => {
       <ContextProvider>
         <ApolloWrapper>
           <GlobalStyles />
-          <BrowserRouter history={history}>
+          <Router history={history}>
             <SideMenu />  
             <Navigation />
             <Drawer />
-            <Router />
-          </BrowserRouter>
+            <AppRouter />
+          </Router>
         </ApolloWrapper>
       </ContextProvider>
     </ThemeProvider>

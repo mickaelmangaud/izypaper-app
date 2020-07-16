@@ -6,7 +6,7 @@ export const NavigationWrapper = styled.div`
   background-color: #048b9a;
   height: 64px;
   box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
-  display: flex;
+  display: ${({ displayed }) => displayed ? 'flex' : 'none '};
   justify-content: space-between;
   padding: 0 12px;
 

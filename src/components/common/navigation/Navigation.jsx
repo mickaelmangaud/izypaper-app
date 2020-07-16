@@ -2,6 +2,7 @@ import React from 'react'
 import { NavigationWrapper } from './styled';
 import { Context } from '../../../context';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const BurgerWrapper = styled.div`
   z-index: 20;
@@ -24,12 +25,14 @@ const BurgerWrapper = styled.div`
 `;
 
 export const Navigation = () => {
+  const location = useLocation();
+  const displayNavBar = location.pathname !== '/login';
   const { context, setContext } = React.useContext(Context);
   const toggleDrawer = () => setContext({ ...context, drawerOpen: !context.drawerOpen });
   const handleClickBurger = () => setContext( context => ({ ...context, sideMenuOpen: !context.sideMenuOpen }));
 
   return (
-    <NavigationWrapper>
+    <NavigationWrapper displayed={displayNavBar}>
       <BurgerWrapper className="burger" onClick={handleClickBurger}>
         <span className="material-icons">
           {!context.drawerOpen ? 'menu' : 'menu_open'}

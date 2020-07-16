@@ -17,14 +17,14 @@ const AuthRoute = ({ component: Component, ...rest }) => {
   );
 }
 
-export const Router = () => {
+export const AppRouter = () => {
   return(
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/inscription" component={Register} />
-      <Route path="/login" component={Login} />
-      <Route path="/creer-mon-entreprise" component={CreateBusiness} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route exact path="/inscription" component={Register} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/creer-mon-entreprise" component={CreateBusiness} />
+      <Route exact path="/dashboard" component={Dashboard} />
       <Route path="*" component={NotFound404} />
     </Switch>
   )
