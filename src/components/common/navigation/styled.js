@@ -9,18 +9,6 @@ export const NavigationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  .burger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .material-icons {
-      color: white;
-      font-size: 32px;
-      transition: all .2s ease;
-      margin-left: 12px;
-    }
-  }
-
   .app-title {
     font-family: 'Merienda One', cursive;
     flex: 1;

@@ -4,10 +4,10 @@ import { avatar } from '../../../../assets/images';
 
 const DrawerWrapper = styled.div`
   position: absolute;
-  top: 60px;
+  top: 0px;
   left: ${({ open }) => open ? '0' : '-500px'};
   width: 500px;
-  height: calc(100vh - 60px);
+  height: calc(100vh);
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
   transition: all .2s ease;
