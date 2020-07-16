@@ -4,7 +4,7 @@ import axios from 'axios';
 export const Context = createContext(null);
 
 const defaultValue = {
-  menuOpen: false,
+  drawerOpen: false,
   auth: {
     isAuthenticated: false,
     user: null,

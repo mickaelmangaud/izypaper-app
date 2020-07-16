@@ -10,6 +10,8 @@ WebFont.load({
     families: [
       'Nunito Sans:300,400,700',
       'Ubuntu:300,400,700',
+      'Lato:400',
+      'Boogaloo',
       'Merienda One',
       'Material+Icons',
       'sans-serif'

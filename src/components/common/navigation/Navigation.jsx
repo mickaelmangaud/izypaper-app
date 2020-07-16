@@ -1,33 +1,38 @@
 import React from 'react'
 import { NavigationWrapper } from './styled';
-import { Drawer } from './drawer';
+import { Drawer } from '../drawer';
 import { Context } from '../../../context';
 import styled from 'styled-components';
 
 const BurgerWrapper = styled.div`
+  z-index: 20;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
+  
     .material-icons {
-      color: ${({ open }) => open ? 'black' : 'white'};
-      font-size: 32px;
-      transition: all .1s ease;
-      margin-left: 12px;
+      color: white;
+      padding: 12px;
+      overflow: visible;
+      font-size: 1.5rem;
+      text-align: center;
+      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 50%;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
     }
 `;
 
 export const Navigation = () => {
   const { context, setContext } = React.useContext(Context);
-  const toggleMenu = () => setContext({ ...context, menuOpen: !context.menuOpen });
+  const toggleDrawer = () => setContext({ ...context, drawerOpen: !context.drawerOpen });
 
   return (
     <NavigationWrapper>
-      <Drawer open={context.menuOpen}/>
-      <BurgerWrapper open={context.menuOpen} className="burger" style={{
-        zIndex: '1000'
-      }}>
-        <span className="material-icons"  onClick={toggleMenu}>
-          {!context.menuOpen ? 'menu' : 'menu_open'}
+      <BurgerWrapper className="burger">
+        <span className="material-icons">
+          {!context.drawerOpen ? 'menu' : 'menu_open'}
         </span>
       </BurgerWrapper>
       <h1 className="app-title">Izypaper</h1>
@@ -38,7 +43,7 @@ export const Navigation = () => {
         <span className="material-icons icon">
           add_alert
         </span>
-        <span className="material-icons icon">
+        <span className="material-icons icon"  onClick={toggleDrawer}>
           account_circle
         </span>
       </div>

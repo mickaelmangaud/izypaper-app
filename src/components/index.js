@@ -1,1 +1,1 @@
-export { Navigation, Input, ScreenWrapper } from './common';
+export { Navigation, Input, ScreenWrapper, Drawer, Paper } from './common';

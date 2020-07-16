@@ -6,7 +6,7 @@ const StyledScreenWrapper = styled.div`
   height: 100%;
   width:100vw;
   padding: 36px;
-  margin-top: 60px;
+  margin-top: 64px;
 `;
 
 export const ScreenWrapper = ({ children }) => {

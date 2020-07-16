@@ -1,4 +1,5 @@
 import React from 'react';
+import { Paper } from '../../../../components';
 
 export const Step1 = ({ setBusinnes }) => {
   return (
