@@ -1,9 +1,10 @@
 import React from 'react';
+import { ScreenWrapper } from '../components';
 
 export const NotFound404 = () => {
   return(
-    <div>
+    <ScreenWrapper>
       404
-    </div>
+    </ScreenWrapper>
   )
 }

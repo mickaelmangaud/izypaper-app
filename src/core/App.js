@@ -4,7 +4,7 @@ import { ApolloWrapper } from '../apollo';
 import { ContextProvider } from '../context';
 import { theme } from '../utils';
 import { Router } from './Router';
-import { Navigation, Drawer } from '../components';
+import { Navigation, Drawer, SideMenu } from '../components';
 import { BrowserRouter } from 'react-router-dom';
 import { history } from '../core';
 
@@ -34,8 +34,9 @@ export const App = () => {
         <ApolloWrapper>
           <GlobalStyles />
           <BrowserRouter history={history}>
-            <Drawer />
+            <SideMenu />  
             <Navigation />
+            <Drawer />
             <Router />
           </BrowserRouter>
         </ApolloWrapper>

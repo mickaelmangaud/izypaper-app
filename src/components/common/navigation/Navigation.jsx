@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavigationWrapper } from './styled';
-import { Drawer } from '../drawer';
 import { Context } from '../../../context';
 import styled from 'styled-components';
 
@@ -27,10 +26,13 @@ const BurgerWrapper = styled.div`
 export const Navigation = () => {
   const { context, setContext } = React.useContext(Context);
   const toggleDrawer = () => setContext({ ...context, drawerOpen: !context.drawerOpen });
+  const handleClickBurger = () => setContext( context => ({ ...context, sideMenuOpen: !context.sideMenuOpen }));
+  
+  console.log('handleClickBurger', context.sideMenuOpen);
 
   return (
     <NavigationWrapper>
-      <BurgerWrapper className="burger">
+      <BurgerWrapper className="burger" onClick={handleClickBurger}>
         <span className="material-icons">
           {!context.drawerOpen ? 'menu' : 'menu_open'}
         </span>
