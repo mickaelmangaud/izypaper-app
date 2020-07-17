@@ -19,7 +19,6 @@ WebFont.load({
   }
 });
 
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
