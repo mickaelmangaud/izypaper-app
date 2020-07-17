@@ -35,7 +35,7 @@ export const Navigation = () => {
     <NavigationWrapper displayed={displayNavBar}>
       <BurgerWrapper className="burger" onClick={handleClickBurger}>
         <span className="material-icons">
-          {!context.drawerOpen ? 'menu' : 'menu_open'}
+          {!context.sideMenuOpen ? 'menu' : 'menu_open'}
         </span>
       </BurgerWrapper>
       <h1 className="app-title">Izypaper</h1>
@@ -47,7 +47,7 @@ export const Navigation = () => {
           add_alert
         </span>
         <span className="material-icons icon"  onClick={toggleDrawer}>
-          account_circle
+          {!context.drawerOpen ? 'account_circle' : 'close'}
         </span>
       </div>
     </NavigationWrapper>

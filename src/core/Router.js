@@ -24,7 +24,7 @@ export const AppRouter = () => {
       <Route exact path="/inscription" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/creer-mon-entreprise" component={CreateBusiness} />
-      <Route exact path="/dashboard" component={Dashboard} />
+      <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route path="*" component={NotFound404} />
     </Switch>
   )

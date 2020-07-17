@@ -8,25 +8,22 @@ import { useHistory  } from 'react-router-dom';
 const LoginWrapper = styled.div`
   display: flex;
   height: 100vh;
+  background-color: ${({theme}) => theme.colors.primary};
+  background-image: url(${background});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
   }
 
-  .infos {
+  .infos, .form {
     flex: 1;
-    background-color: ${({theme}) => theme.colors.primary};
-    background-image: url(${background});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center left;
-    margin-left: -1px;
   }
 
   .form { 
-    flex: 1;
-
+    background-color: #eee;
     
-
     form {
       display: flex;
       flex-direction: column;
