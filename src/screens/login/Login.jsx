@@ -17,13 +17,21 @@ export const Login = () => {
       }, { withCredentials: true })
         .then(response => {
           setContext(context => ({ ...context, loaderDisplayed: true }));
-          
-          setContext(context => ({ ...context, auth: { isAuthenticated: true, user: response.data.user, error: null }}));
-          
-          setTimeout(() => setContext(context => ({ ...context, loaderDisplayed: false })), 800);
+
+          setContext(context => ({ 
+            ...context, 
+            auth: { 
+              isAuthenticated: true,
+              user: response.data.user,
+              error: null 
+          }}));
+
+          setTimeout(
+            () => setContext(context => ({ ...context, loaderDisplayed: false })),
+            800
+          );
           
           history.push('/dashboard');
-
         })
         .catch(error => {
           setContext({ ...context, auth: { user: null, isAuthenticated: false, error: error.message }, drawerOpen: false })
