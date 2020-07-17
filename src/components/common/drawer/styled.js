@@ -10,6 +10,9 @@ export const DrawerWrapper = styled.div`
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
   transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
 
   .userinfos {
     height: 500px;
@@ -35,5 +38,15 @@ export const DrawerWrapper = styled.div`
       font-size: 18px;
       color: rgba(0,0,0,.5);
     }
+  }
+
+  .content {
+
+  }
+
+  .footer {
+    text-align: right;
+    /* background-color: red; */
+    padding: 6px;
   }
 `;
