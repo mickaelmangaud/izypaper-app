@@ -8,7 +8,6 @@ import { useHistory  } from 'react-router-dom';
 const LoginWrapper = styled.div`
   display: flex;
   height: 100vh;
-  background-color: ${({theme}) => theme.colors.primary};
   background-image: url(${background});
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,7 +21,7 @@ const LoginWrapper = styled.div`
   }
 
   .form { 
-    background-color: #fff;
+    background-color: #eee;
     
     form {
       display: flex;
@@ -44,14 +43,13 @@ const LoginWrapper = styled.div`
         margin-bottom: 24px;
         height: 40px;
         border: none;
-        background-color: #eee;
+        background-color: #ccc;
         border-radius: 3px;
         padding: 8px 12px;
       }
 
       input:focus {
         border: 1px solid ${({theme}) => theme.colors.primary};
-
       }
 
       button {

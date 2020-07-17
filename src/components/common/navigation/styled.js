@@ -11,8 +11,9 @@ export const NavigationWrapper = styled.div`
   justify-content: space-between;
   padding: 0 12px;
   background-image: url(${background});
-  background-position: -1px center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -1px top;
 
   .app-title {
     font-family: 'Merienda One', cursive;
