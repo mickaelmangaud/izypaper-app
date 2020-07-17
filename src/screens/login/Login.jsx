@@ -18,7 +18,7 @@ export const Login = () => {
         .then(response => {
           setContext(context => ({ ...context, loaderDisplayed: true }));
           
-          setContext( context => ({ ...context, auth: { isAuthenticated: true, user: response.data.user, error: null }}));
+          setContext(context => ({ ...context, auth: { isAuthenticated: true, user: response.data.user, error: null }}));
           
           setTimeout(() => setContext(context => ({ ...context, loaderDisplayed: false })), 800);
           
