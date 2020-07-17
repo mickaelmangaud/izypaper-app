@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { background } from '../../../assets/images';
 
 export const NavigationWrapper = styled.div`
   position: fixed;
@@ -9,6 +10,9 @@ export const NavigationWrapper = styled.div`
   display: ${({ displayed }) => displayed ? 'flex' : 'none '};
   justify-content: space-between;
   padding: 0 12px;
+  background-image: url(${background});
+  background-position: -1px center;
+  background-size: cover;
 
   .app-title {
     font-family: 'Merienda One', cursive;
@@ -18,6 +22,7 @@ export const NavigationWrapper = styled.div`
     color: white;
     position: relative;
     bottom: 1px;
+    margin-left: 12px;
   }
 
   .icons {

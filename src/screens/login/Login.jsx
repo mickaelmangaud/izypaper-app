@@ -22,7 +22,7 @@ const LoginWrapper = styled.div`
   }
 
   .form { 
-    background-color: #eee;
+    background-color: #fff;
     
     form {
       display: flex;
@@ -44,9 +44,14 @@ const LoginWrapper = styled.div`
         margin-bottom: 24px;
         height: 40px;
         border: none;
-        background-color: #ccc;
+        background-color: #eee;
         border-radius: 3px;
         padding: 8px 12px;
+      }
+
+      input:focus {
+        border: 1px solid ${({theme}) => theme.colors.primary};
+
       }
 
       button {
