@@ -4,6 +4,7 @@ import { Context } from '../../../context';
 
 const Loader = () => {
   const { context } = useContext(Context);
+  
   return (
     <LoaderWrapper displayed={context.loaderDisplayed}>
       <svg

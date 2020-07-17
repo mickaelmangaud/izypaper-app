@@ -47,3 +47,23 @@ export const NavigationWrapper = styled.div`
     }
   }
 `;
+
+export const BurgerWrapper = styled.div`
+z-index: 20;
+display: flex;
+justify-content: center;
+align-items: center;
+
+  .material-icons {
+    color: white;
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+`;

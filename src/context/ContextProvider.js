@@ -15,7 +15,9 @@ const defaultValue = {
 };
 
 export const ContextProvider =  ({ children }) => {
-  const [context, setContext] = useState(JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue);
+  const [context, setContext] = useState(
+    JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue
+  );
   
   /* Enable context persistence on window reload */
   useEffect(() => {
@@ -37,7 +39,7 @@ export const ContextProvider =  ({ children }) => {
             error: null,
             user: response.data.user,
             isAuthenticated: true
-        }}))
+        }}));
 
       } catch (error) {
         setContext( context => ({
@@ -46,11 +48,11 @@ export const ContextProvider =  ({ children }) => {
             error: error.message,
             user: null,
             isAuthenticated: false
-        }}))
+        }}));
       }
     }
 
-    addSessionUserToContext()
+    addSessionUserToContext();
   }, []);
 
   return (

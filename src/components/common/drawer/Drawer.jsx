@@ -9,14 +9,26 @@ export const Drawer = () => {
 
   const logout = async () => {
     try {
-      await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/logout`, { withCredentials: true })
-      setContext({ ...context, auth: { user: null, isAuthenticated: false, error: null }, drawerOpen: false })
+      await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/logout`, { withCredentials: true });
+
+      setContext(context => ({ 
+        ...context,
+        drawerOpen: false,
+        auth: { 
+          user: null,
+          isAuthenticated: false,
+          error: null 
+      }}));
+
       window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME)
-      window.location.reload()
+      window.location.pathname = '/'
     } catch (error) {
-      setContext({ ...context, auth: { user: 'logout error', isAuthenticated: false, error: error.message }, drawerOpen: false })
+      setContext( context => ({ 
+        ...context, 
+        auth: { user: error.message, isAuthenticated: false, error: error.message }, 
+        drawerOpen: false
+      }))
     }
-      
   }
 
   return (
