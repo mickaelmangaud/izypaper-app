@@ -46,7 +46,11 @@ export const DrawerWrapper = styled.div`
 
   .footer {
     text-align: right;
-    /* background-color: red; */
-    padding: 6px;
+    font-size: 12px;
+    padding: 12px;
+    cursor: pointer;
+    p {
+      color: rgba(0,0,0,.4);
+    }
   }
 `;
