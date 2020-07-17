@@ -4,6 +4,7 @@ export const DrawerWrapper = styled.div`
   position: absolute;
   top: 64px;
   left: ${({ open }) => open ? 'calc(100vw - 500px)' : '100vw'};
+  opacity: ${({ open }) => open ? 1 : 0};
   width: 500px;
   height: calc(100vh - 64px);
   background-color: white;
