@@ -12,8 +12,8 @@ export const Login = () => {
     evt.preventDefault();
 
       axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, {
-        email: 'mickaelmangaud@gmail.com',
-        password: 'okcomputer'
+        email: 'cecile@gmail.com',
+        password: 'cecile'
       }, { withCredentials: true })
         .then(response => {
           setContext(context => ({ ...context, loaderDisplayed: true }));
@@ -34,7 +34,14 @@ export const Login = () => {
           history.push('/dashboard');
         })
         .catch(error => {
-          setContext({ ...context, auth: { user: null, isAuthenticated: false, error: error.message }, drawerOpen: false })
+          setContext(context => ({
+            ...context,
+            drawerOpen: false,
+            auth: {
+              user: null,
+              isAuthenticated: false,
+              error: error.message },
+          }))
         })
   }
 
