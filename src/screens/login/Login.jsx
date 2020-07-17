@@ -5,16 +5,19 @@ import { useHistory  } from 'react-router-dom';
 import { LoginWrapper } from './styled';
 
 export const Login = () => {
+  const [credentials, setCredentials] = React.useState({
+    email: '',
+    password: '',
+  });
+
   const { context, setContext } = useContext(Context);
   const history = useHistory();
+  const handleOnChangeInput = e => setCredentials({ ...credentials, [e.target.name]: e.target.value });
 
   const login = async evt => {
     evt.preventDefault();
 
-      axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, {
-        email: 'cecile@gmail.com',
-        password: 'cecile'
-      }, { withCredentials: true })
+      axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, credentials, { withCredentials: true })
         .then(response => {
           setContext(context => ({ ...context, loaderDisplayed: true }));
 
@@ -53,8 +56,20 @@ export const Login = () => {
       <div className="form">
         <form onSubmit={login}>
           <h1>LOGIN</h1>
-          <input placeholder="Email ..." type="email"/>
-          <input placeholder="Mot de passe ..." type="password"/>
+          <input 
+            placeholder="Email ..."
+            type="email"
+            name="email"
+            value={credentials.email}
+            onChange={handleOnChangeInput}
+          />
+          <input
+            placeholder="Mot de passe ..."
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleOnChangeInput}
+          />
           <button>Connexion</button>
         </form>
       </div>
