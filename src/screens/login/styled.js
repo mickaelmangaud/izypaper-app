@@ -35,13 +35,7 @@ export const LoginWrapper = styled.div`
       }
 
       input, button {
-        width: 80%;
         margin-bottom: 24px;
-        height: 40px;
-        border: none;
-        background-color: #ccc;
-        border-radius: 3px;
-        padding: 8px 12px;
       }
 
       input:focus {
