@@ -22,6 +22,10 @@ const InputWrapper = styled.div`
     background-color: #ccc;
     border-radius: 3px;
     padding: 8px 12px;
+
+    &:focus {
+      background-color: #ccc;
+    }
   }
 `;
 
