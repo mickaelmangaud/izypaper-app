@@ -22,7 +22,7 @@ export const LoginWrapper = styled.div`
     align-items: center;
     
     form {
-      padding: 5% 30%;
+      padding: 5% 35%;
       display: flex;
       flex-direction: column;
       justify-content: center;
