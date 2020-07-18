@@ -36,7 +36,7 @@ export const Drawer = () => {
       }}));
 
       window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME)
-      window.location.pathname = '/'
+      window.location = 'http://www.izypaper.com'
     } catch (error) {
       setContext( context => ({ 
         ...context, 
