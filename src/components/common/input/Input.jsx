@@ -19,7 +19,7 @@ const InputWrapper = styled.div`
     width: 100%;
     height: 42px;
     border: ${({ theme, error }) => error ? '2px solid red' : 'none'};
-    background-color: #ccc;
+    background-color: #eee;
     border-radius: 5px;
     padding: 8px 12px;
 

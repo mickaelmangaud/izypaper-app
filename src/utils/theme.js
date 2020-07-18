@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-color: #eee;
+    background-color: #fff;
   }
   /* Prevent chrome to colorize autocompleted inputs   */
   input:-webkit-autofill,

@@ -17,12 +17,12 @@ export const LoginWrapper = styled.div`
   }
 
   .form-wrapper { 
-    background-color: #eee;
+    background-color: #fff;
     display: flex;
     align-items: center;
     
     form {
-      padding: 5% 20%;
+      padding: 5% 30%;
       display: flex;
       flex-direction: column;
       justify-content: center;
