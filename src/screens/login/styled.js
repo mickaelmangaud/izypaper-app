@@ -12,20 +12,22 @@ export const LoginWrapper = styled.div`
     flex-direction: column-reverse;
   }
 
-  .infos, .form {
+  .infos, .form-wrapper {
     flex: 1;
   }
 
-  .form { 
+  .form-wrapper { 
     background-color: #eee;
+    display: flex;
+    align-items: center;
     
     form {
+      padding: 5% 20%;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      padding: 20%;
-      height: 100%;
+      width: 100%;
+      position: relative;
 
       h1 {
         margin-bottom: 80px;
@@ -38,16 +40,22 @@ export const LoginWrapper = styled.div`
         margin-bottom: 24px;
       }
 
-      input:focus {
-        border: 1px solid ${({theme}) => theme.colors.primary};
-      }
-
       button {
         background-color: ${({ theme}) => theme.colors.primary };
         color: white;
         font-size: 18px;
         &:hover {
           background-color: ${({ theme }) => `rgba(${theme.colors.primary}, .2)`};
+        }
+      }
+
+      .errors {
+        width: 60%;
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        p {
+          color: red;
         }
       }
     }

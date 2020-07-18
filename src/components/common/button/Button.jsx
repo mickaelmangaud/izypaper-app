@@ -6,10 +6,10 @@ const ButtonWrapper = styled.div`
   
   button {
     width: 100%;
-    height: 40px;
+    height: 42px;
     border: none;
     background-color: #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 8px 12px;
   }
 `;

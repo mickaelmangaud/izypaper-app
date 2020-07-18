@@ -10,32 +10,32 @@ const InputWrapper = styled.div`
   label {
     align-self: flex-start;
     font-size: 14px;
-    margin-bottom: 4px;
-    color: ${({ theme }) => theme.colors.primary};
+    margin-bottom: 10px;
+    color: rgba(0,0,0,.6);
     font-weight: bold;
   }
 
   input {
     width: 100%;
-    height: 40px;
-    border: none;
+    height: 42px;
+    border: ${({ theme, error }) => error ? '2px solid red' : 'none'};
     background-color: #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 8px 12px;
 
-    &:focus {
-      background-color: #ccc;
+    &:focus, &::active {
+      background-color: red;
     }
   }
+  
 `;
 
-export const Input = ({ label, type, value, onChange, className, name }) => {
+export const Input = ({ label, type, value, onChange, className, name, error }) => {
   return (
-    <InputWrapper className={className}>
+    <InputWrapper className={className} error={error}>
       <label htmlFor={label}>{label}</label>
       <input 
         type={type}
-        placeholder={label}
         name={name}
         value={value}
         onChange={onChange} 
