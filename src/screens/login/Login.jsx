@@ -42,7 +42,7 @@ export const Login = () => {
         history.push('/dashboard');
       })
       .catch(error => {
-        if (error.response.status === 401) {
+        if (!!error.response && error.response.status === 401) {
           setErrors({credentials: 'Identifiants incorrects'});
         }
       })
