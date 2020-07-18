@@ -11,7 +11,7 @@ const InputWrapper = styled.div`
     align-self: flex-start;
     font-size: 14px;
     margin-bottom: 10px;
-    color: rgba(0,0,0,.6);
+    color: ${({ theme }) => theme.colors.primary};
     font-weight: bold;
   }
 
