@@ -16,7 +16,7 @@ const APOLLO_QUERY = gql`
 
 export const Drawer = () => {
   const { context, setContext } = React.useContext(Context);
-  const { error, loading, data } = useQuery(APOLLO_QUERY);
+  const { data } = useQuery(APOLLO_QUERY);
 
   if (data) {
     console.log('apollo data', data);

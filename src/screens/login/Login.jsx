@@ -7,7 +7,7 @@ import { Button, Input } from '../../components';
 
 export const Login = () => {
   const history = useHistory();
-  const { context, setContext } = useContext(Context);
+  const { setContext } = useContext(Context);
   const [error, setError] = React.useState('');
   const [credentials, setCredentials] = React.useState({
     email: '',
