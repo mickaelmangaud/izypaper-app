@@ -19,7 +19,6 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 export const AppRouter = () => {
   return(
     <Switch>
-      {/* <Route exact path="/" component={Home} /> */}
       <Route exact path="/" component={Login} />
       <Route exact path="/inscription" component={Register} />
       <Route exact path="/creer-mon-entreprise" component={CreateBusiness} />
