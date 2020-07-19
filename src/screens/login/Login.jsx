@@ -22,12 +22,11 @@ export const Login = () => {
 
   const login = async evt => {
     evt.preventDefault();
-    const errors = validateLogin(credentials);
+    const validateErrors = validateLogin(credentials);
 
-    if (Object.keys(errors).length > 0) {
-      setErrors(errors);
+    if (validateErrors.email || validateErrors.password) {
+      setErrors({ ...validateErrors });
     } else {
-      console.log('post')
       axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, credentials, { withCredentials: true })
       .then(response => {
         setContext(context => ({ ...context, loaderDisplayed: true }));
@@ -48,7 +47,7 @@ export const Login = () => {
       })
     }
   }
-  console.log('errors', errors)
+
   return (
     <LoginWrapper>
       <div className="infos">
@@ -59,7 +58,7 @@ export const Login = () => {
           <h1>LOGIN</h1>
           <Input
             label="Email"
-            type="email"
+            type="text"
             name="email"
             value={credentials.email}
             onChange={handleOnChangeInput}
@@ -79,9 +78,10 @@ export const Login = () => {
             label={'Se connecter'}
             />
           <div className="errors">
-            {!!errors && Object.values(errors).map(value => (
-              <p key={value}>{value}</p>
-            ))}
+            {Object.entries(errors).map(([key, value]) => {
+              // console.log(key);
+              // console.log(value); 
+            })}
           </div>
         </form>
       </div>
