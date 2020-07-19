@@ -12,27 +12,32 @@ export const LoginWrapper = styled.div`
     flex-direction: column-reverse;
   }
 
-  .infos, .form-wrapper {
+  .form-wrapper {
+    margin: 5%;
     flex: 1;
   }
 
   .infos {
-    @media (max-width: 768px) {
+    flex: 1;
+    @media (max-width: 980px) {
       display: none;
     }
   }
 
   .form-wrapper { 
-    background-color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     
     form {
-      padding: 5% 25%;
+      box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
+      background-color: #fff;
+      padding: 5% 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 100%;
+      /* width: 50%; */
+      min-width: 500px;
       position: relative;
       @media (max-width: 768px) {
         padding: 5% 15%;
@@ -65,7 +70,8 @@ export const LoginWrapper = styled.div`
         bottom: 0;
 
         p {
-          color: red;
+          color: rgba(255,0,0,.5);
+          font-weight: bold;
         }
       }
     }

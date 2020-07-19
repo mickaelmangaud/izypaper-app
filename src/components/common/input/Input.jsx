@@ -18,8 +18,8 @@ const InputWrapper = styled.div`
   input {
     width: 100%;
     height: 42px;
-    border: ${({ theme, error }) => error ? '2px solid red' : 'none'};
-    background-color: #eee;
+    background-color: ${({ theme, error }) => error ? 'rgba(255,0,0,.3)' : '#eee'};
+    border: none;
     border-radius: 5px;
     padding: 8px 12px;
 
