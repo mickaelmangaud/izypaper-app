@@ -12,11 +12,6 @@ export const LoginWrapper = styled.div`
     flex-direction: column-reverse;
   }
 
-  .form-wrapper {
-    margin: 5%;
-    flex: 1;
-  }
-
   .infos {
     flex: 1;
     @media (max-width: 980px) {
@@ -28,6 +23,11 @@ export const LoginWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5%;
+    flex: 1;
+    @media (max-width: 768px) {
+      margin: 0;
+    }
     
     form {
       box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
@@ -36,11 +36,14 @@ export const LoginWrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* width: 50%; */
+      height: 540px;
       min-width: 500px;
       position: relative;
       @media (max-width: 768px) {
         padding: 5% 15%;
+        height: 100%;
+        width: 100%;
+        min-width: initial;
       }
 
       h1 {
