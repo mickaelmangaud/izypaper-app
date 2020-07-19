@@ -51,7 +51,7 @@ export const Login = () => {
   return (
     <LoginWrapper>
       <div className="infos">
-        
+        mkmlkmk
       </div>
       <div className="form-wrapper">
         <form onSubmit={login}>
@@ -78,10 +78,9 @@ export const Login = () => {
             label={'Se connecter'}
             />
           <div className="errors">
-            {Object.entries(errors).map(([key, value]) => {
-              // console.log(key);
-              // console.log(value); 
-            })}
+            {Object.entries(errors).map(([key, value]) => 
+              value && <p key={key}>{value}</p>
+            )}
           </div>
         </form>
       </div>

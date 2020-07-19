@@ -16,18 +16,27 @@ export const LoginWrapper = styled.div`
     flex: 1;
   }
 
+  .infos {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
   .form-wrapper { 
     background-color: #fff;
     display: flex;
     align-items: center;
     
     form {
-      padding: 5% 35%;
+      padding: 5% 25%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 100%;
       position: relative;
+      @media (max-width: 768px) {
+        padding: 5% 15%;
+      }
 
       h1 {
         margin-bottom: 80px;
@@ -54,6 +63,7 @@ export const LoginWrapper = styled.div`
         position: absolute;
         text-align: center;
         bottom: 0;
+
         p {
           color: red;
         }
