@@ -55,7 +55,7 @@ export const Login = () => {
       </div>
       <div className="form-wrapper">
         <form onSubmit={login}>
-          <h1>LOGIN</h1>
+          <h1>Connexion</h1>
           <Input
             label="Email"
             type="text"

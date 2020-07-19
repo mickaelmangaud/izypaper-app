@@ -28,6 +28,10 @@ export const LoginWrapper = styled.div`
     @media (max-width: 768px) {
       margin: 0;
     }
+
+    h1 {
+      font-family: 'Lato';
+    }
     
     form {
       box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
@@ -55,6 +59,7 @@ export const LoginWrapper = styled.div`
 
       input, button {
         margin-bottom: 24px;
+        font-family: 'Lato';
       }
 
       button {

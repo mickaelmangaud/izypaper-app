@@ -13,6 +13,7 @@ const InputWrapper = styled.div`
     margin-bottom: 10px;
     color: ${({ theme }) => theme.colors.primary};
     font-weight: bold;
+    font-family: 'Lato', sans-serif;
   }
 
   input {
@@ -22,6 +23,7 @@ const InputWrapper = styled.div`
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
+    
 
     &:focus, &::active {
       background-color: red;
