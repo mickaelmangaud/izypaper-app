@@ -51,7 +51,7 @@ export const Login = () => {
   return (
     <LoginWrapper>
       <div className="infos">
-        mkmlkmk
+        
       </div>
       <div className="form-wrapper">
         <form onSubmit={login}>

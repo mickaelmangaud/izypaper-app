@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     user-select: none;
     outline: none;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: rgba(0,0,0, .85);
   }
 
