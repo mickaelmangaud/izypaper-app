@@ -31,7 +31,7 @@ export const LoginWrapper = styled.div`
     }
 
     h1 {
-      font-family: 'Lato';
+      font-family: 'Lato', sans-serif;
     }
     
     form {
