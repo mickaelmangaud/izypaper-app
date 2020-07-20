@@ -35,9 +35,9 @@ export const LoginWrapper = styled.div`
     }
     
     form {
-      box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
       background-color: #fff;
-      padding: 5% 60px;
+      box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
+      padding: 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
