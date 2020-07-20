@@ -41,8 +41,8 @@ export const GlobalStyles = createGlobalStyle`
   select:-webkit-autofill:focus {
     border:none !important;
     -webkit-text-fill-color: inherit !important;
-    -webkit-box-shadow: 0 0 0px 1000px #ccc inset;
-    box-shadow: 0 0 0px 1000px #ccc inset;
+    -webkit-box-shadow: 0 0 0px 1000px #eee inset;
+    box-shadow: 0 0 0px 1000px #eee inset;
     transition: background-color 5000s ease-in-out 0s;
   }
 `;
