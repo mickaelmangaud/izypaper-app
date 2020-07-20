@@ -10,6 +10,7 @@ export const LoginWrapper = styled.div`
   background-position: center top;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    background-image: none;
   }
 
   .infos {
@@ -45,7 +46,7 @@ export const LoginWrapper = styled.div`
       position: relative;
       @media (max-width: 768px) {
         padding: 5% 15%;
-        height: 100%;
+        box-shadow: none;
         width: 100%;
         min-width: initial;
       }
@@ -74,12 +75,17 @@ export const LoginWrapper = styled.div`
       .errors {
         width: 60%;
         position: absolute;
-        text-align: center;
-        bottom: 0;
+        text-align: center;        
+        bottom: 36px;
+        left: 100px;
+        @media (max-width: 768px) {
+          left: 140px;
+        }
 
         p {
           color: rgba(255,0,0,.5);
           font-weight: bold;
+          font-family: 'Lato', sans-serif;
         }
       }
     }
