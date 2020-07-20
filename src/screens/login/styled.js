@@ -73,14 +73,8 @@ export const LoginWrapper = styled.div`
       }
 
       .errors {
-        width: 60%;
-        position: absolute;
-        text-align: center;        
-        bottom: 36px;
-        left: 100px;
-        @media (max-width: 768px) {
-          left: 140px;
-        }
+        height: 100px;
+        text-align: center;
 
         p {
           color: rgba(255,0,0,.5);
