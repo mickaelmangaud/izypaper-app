@@ -65,12 +65,7 @@ export const LoginWrapper = styled.div`
       }
 
       button {
-        background-color: ${({ theme}) => theme.colors.primary };
-        color: white;
         font-size: 18px;
-        &:hover {
-          background-color: ${({ theme }) => `rgba(${theme.colors.primary}, .2)`};
-        }
       }
 
       .errors {
