@@ -4,6 +4,8 @@ import { Input, Button } from '../../components';
 import { gql, useMutation } from '@apollo/client';
 
 export const Register = () => {
+  const [errors, setErrors] = React.useState(null);
+
   const [formFields, setFormFields] = React.useState({
     firstName: '',
     lastName: '',
@@ -12,26 +14,18 @@ export const Register = () => {
     password_confirmation: ''
   });
 
-  const [createUser, { error, loading, data }] = useMutation(CREATE_USER_QUERY, {
-    onError: () => console.log('ON ERROR')
+  const handleInputChange = e => setFormFields({ ...formFields, [e.target.name]: e.target.value });
+
+  const [createUser] = useMutation(CREATE_USER_QUERY, {
+    onError: err => setErrors(err.message),
   });
 
-  const handleInputChange = e => setFormFields({ ...formFields, [e.target.name]: e.target.value});
-
   const handleSubmitRegister = e => {
-    e.preventDefault();
-    console.log(`Je m'inscris`);
-    try {
-      createUser({ variables: formFields });
-    } catch (e) {
-      console.log('E', e);
-    }
-  }
+    // TODO: validate payload
 
-  console.log('formFields', formFields);
-  if(data) {
-    console.log('CREATE USER DATA', data);
-  }
+    e.preventDefault();
+    createUser({ variables: formFields });
+  };
 
   return (
     <RegisterWrapper>
@@ -84,7 +78,7 @@ export const Register = () => {
               className="register-btn"
             />
           </form>
-
+          {!!errors && <p>{errors}</p>}
         </div>
       </div>
     </RegisterWrapper>
