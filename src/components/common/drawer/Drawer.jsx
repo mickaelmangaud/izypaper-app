@@ -5,22 +5,9 @@ import { Context } from '../../../context';
 import axios from 'axios';
 import { useQuery, gql } from '@apollo/client';
 
-const APOLLO_QUERY = gql`
-  query {
-    currentUser {
-      id
-      email
-    }
-  }
-`;
-
 export const Drawer = () => {
   const { context, setContext } = React.useContext(Context);
   const { data } = useQuery(APOLLO_QUERY);
-
-  if (data) {
-    console.log('apollo data', data);
-  }
 
   const logout = async () => {
     try {
@@ -28,6 +15,7 @@ export const Drawer = () => {
 
       setContext(context => ({ 
         ...context,
+        sideMenuOpen: false,
         drawerOpen: false,
         auth: { 
           user: null,
@@ -49,7 +37,7 @@ export const Drawer = () => {
   return (
     <DrawerWrapper open={context.drawerOpen}>
       <div className="userinfos">
-        <img src={avatar} alt="user avatar" className="avatar"/>
+4        <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && data.currentUser.email}</h1>
         <p className="description">Juriste chez Novaltis Consulting</p>
       </div>
@@ -62,3 +50,12 @@ export const Drawer = () => {
     </DrawerWrapper>
   )
 }
+
+const APOLLO_QUERY = gql`
+  query {
+    currentUser {
+      id
+      email
+    }
+  }
+`;

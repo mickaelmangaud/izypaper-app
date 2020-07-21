@@ -60,7 +60,8 @@ export const LoginWrapper = styled.div`
 
       input, button {
         margin-bottom: 24px;
-        font-family: 'Lato';
+        font-family: 'Lato', sans-serif;
+        transition: all .2s ease;
       }
 
       button {
