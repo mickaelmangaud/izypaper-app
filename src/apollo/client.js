@@ -9,16 +9,17 @@ const link = new HttpLink({
   credentials: 'include',
 });
 
-const client = new ApolloClient({
-  cache,
-  link
-});
+const client = new ApolloClient({ cache, link });
 
 export default class Apollo extends React.Component {
   async componentDidMount() {
     await persistCache({
       cache,
       storage: window.localStorage,
+      trigger: 'write', // default
+      debounce: 1000, // default for 'write'
+      key: 'izypaper-apollo-cache',
+      debug: true,
     });
   }
 
