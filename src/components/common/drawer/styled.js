@@ -9,7 +9,7 @@ export const DrawerWrapper = styled.div`
   height: calc(100vh - 64px);
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
-  transition: all .3s ease;
+  transition: all .2s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
