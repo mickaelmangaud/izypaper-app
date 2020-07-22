@@ -3,10 +3,10 @@ import { LoaderWrapper } from './styled';
 import { Context } from '../../../context';
 
 const Loader = () => {
-  const { context } = useContext(Context);
+  const { state } = useContext(Context);
   
   return (
-    <LoaderWrapper displayed={context.loaderDisplayed}>
+    <LoaderWrapper displayed={state.loaderDisplayed}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0"

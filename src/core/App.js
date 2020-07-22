@@ -14,7 +14,7 @@ export const App = () => {
       <ContextProvider>
         <ApolloWrapper>
           <GlobalStyles />
-          <Router history={history}>
+          <Router>
             <Loader />
             <SideMenu />  
             <Navigation />

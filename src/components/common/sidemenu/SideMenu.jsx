@@ -3,10 +3,10 @@ import { SideMenuWrapper } from './styled';
 import { Context } from '../../../context';
 
 export const SideMenu = () => {
-  const { context } = React.useContext(Context);
+  const { state } = React.useContext(Context);
 
   return (
-    <SideMenuWrapper displayed={context.sideMenuOpen}>
+    <SideMenuWrapper displayed={state.sideMenuOpen}>
       SideMnusdf
     </SideMenuWrapper>
   )

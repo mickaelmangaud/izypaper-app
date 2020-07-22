@@ -1,0 +1,14 @@
+export const OPEN_SIDE_MENU = 'OPEN_SIDE_MENU';
+export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
+export const CLOSE_SIDE_MENU = 'CLOSE_SIDE_MENU';
+
+export const OPEN_DRAWER = 'OPEN_DRAWER';
+export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU';
+export const CLOSE_DRAWER = 'CLOSE_DRAWER';
+
+export const ADD_USER_TO_CONTEXT = 'ADD_USER_TO_CONTEXT';
+export const DE_AUTHENTICATE = 'DE_AUTHENTICATE';
+export const AUTH_ERROR = 'AUTH_ERROR';
+
+export const DISPLAY_LOADER = 'DISPLAY_LOADER';
+export const HIDE_LOADER = 'HIDE_LOADER';

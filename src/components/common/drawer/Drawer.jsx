@@ -2,40 +2,27 @@ import React from 'react';
 import { DrawerWrapper } from './styled';
 import { avatar } from '../../../assets/images';
 import { Context } from '../../../context';
-import axios from 'axios';
+import { DE_AUTHENTICATE, AUTH_ERROR } from '../../../context/actions';
 import { useQuery, gql } from '@apollo/client';
+import axios from 'axios';
 
 export const Drawer = () => {
-  const { context, setContext } = React.useContext(Context);
+  const { state, dispatch } = React.useContext(Context);
   const { data } = useQuery(APOLLO_QUERY);
 
   const logout = async () => {
     try {
       await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/logout`, { withCredentials: true });
-
-      setContext(context => ({ 
-        ...context,
-        sideMenuOpen: false,
-        drawerOpen: false,
-        auth: { 
-          user: null,
-          isAuthenticated: false,
-          error: null 
-      }}));
-
-      window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME)
-      window.location = 'http://www.izypaper.com'
+      dispatch({ type: DE_AUTHENTICATE });
+      // window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME);
+      window.location = 'http://www.izypaper.com';
     } catch (error) {
-      setContext( context => ({ 
-        ...context, 
-        auth: { user: error.message, isAuthenticated: false, error: error.message }, 
-        drawerOpen: false
-      }))
+      dispatch({ type: AUTH_ERROR, payload: error.message });
     }
   }
 
   return (
-    <DrawerWrapper open={context.drawerOpen}>
+    <DrawerWrapper open={state.drawerOpen}>
       <div className="userinfos">
 4        <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && data.currentUser.email}</h1>

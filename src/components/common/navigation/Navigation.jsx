@@ -1,19 +1,20 @@
 import React from 'react'
 import { NavigationWrapper, BurgerWrapper } from './styled';
 import { Context } from '../../../context';
+import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from '../../../context/actions';
 
 export const Navigation = () => {
-  const { context, setContext } = React.useContext(Context);
-  const displayNavBar = context.auth.isAuthenticated && window.location.pathname !== '/';
+  const { state, dispatch } = React.useContext(Context);
+  const displayNavBar = state.auth.isAuthenticated && window.location.pathname !== '/';
 
-  const toggleDrawer = () => setContext({ ...context, drawerOpen: !context.drawerOpen });
-  const handleClickBurger = () => setContext( context => ({ ...context, sideMenuOpen: !context.sideMenuOpen }));
+  const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });
+  const handleClickBurger = () => dispatch({ type: TOGGLE_SIDE_MENU });
 
   return (
     <NavigationWrapper displayed={displayNavBar}>
       <BurgerWrapper className="burger" onClick={handleClickBurger}>
         <span className="material-icons">
-          {!context.sideMenuOpen ? 'menu' : 'menu_open'}
+          {!state.sideMenuOpen ? 'menu' : 'menu_open'}
         </span>
       </BurgerWrapper>
       <h1 className="app-title">Izypaper</h1>
@@ -25,7 +26,7 @@ export const Navigation = () => {
           add_alert
         </span>
         <span className="material-icons icon"  onClick={toggleDrawer}>
-          {!context.drawerOpen ? 'account_circle' : 'close'}
+          {!state.drawerOpen ? 'account_circle' : 'close'}
         </span>
       </div>
     </NavigationWrapper>
