@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavigationWrapper, BurgerWrapper } from './styled';
 import { Context } from '../../../context';
 import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from '../../../context/actions';
 
 export const Navigation = () => {
-  const { state, dispatch } = React.useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const displayNavBar = state.auth.isAuthenticated && window.location.pathname !== '/';
 
   const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });

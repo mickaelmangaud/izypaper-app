@@ -10,5 +10,5 @@ export const ADD_USER_TO_CONTEXT = 'ADD_USER_TO_CONTEXT';
 export const DE_AUTHENTICATE = 'DE_AUTHENTICATE';
 export const AUTH_ERROR = 'AUTH_ERROR';
 
-export const DISPLAY_LOADER = 'DISPLAY_LOADER';
+export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';

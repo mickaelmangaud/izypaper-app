@@ -6,7 +6,6 @@ import { theme, GlobalStyles } from '../utils';
 import { AppRouter } from './Router';
 import { Navigation, Drawer, SideMenu, Loader } from '../components';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { history } from '../core';
 
 export const App = () => {
   return (

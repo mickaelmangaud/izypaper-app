@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../context';
 import axios from 'axios';
 import { useHistory  } from 'react-router-dom';
 import { LoginWrapper } from './styled';
 import { Button, Input } from '../../components';
 import { validateLogin } from './validate';
-import { DISPLAY_LOADER, HIDE_LOADER, ADD_USER_TO_CONTEXT } from '../../context/actions';
+import { SHOW_LOADER, HIDE_LOADER, ADD_USER_TO_CONTEXT } from '../../context/actions';
 
 export const Login = () => {
   const history = useHistory();
   const { state, dispatch } = useContext(Context);
-  const [errors, setErrors] = React.useState({});
-  const [credentials, setCredentials] = React.useState({
+  const [errors, setErrors] = useState({});
+  const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   });
@@ -20,8 +20,8 @@ export const Login = () => {
     setErrors({});
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
-  
 
+  
 
   const login = async evt => {
     evt.preventDefault();
@@ -32,7 +32,7 @@ export const Login = () => {
     } else {
       axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, credentials, { withCredentials: true })
       .then(response => {
-        dispatch({ type: DISPLAY_LOADER });
+        dispatch({ type: SHOW_LOADER });
         dispatch({ type: ADD_USER_TO_CONTEXT, payload: response.data.user });
         setTimeout(() => dispatch({ type: HIDE_LOADER }), 800);
         history.push('/dashboard');
@@ -46,11 +46,13 @@ export const Login = () => {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(state.auth.isAuthenticated) {
+      dispatch({ type: SHOW_LOADER });
       history.push('/dashboard');
+      setTimeout(() => dispatch({ type: HIDE_LOADER }), 800);
     }
-  }, []);
+  }, [history, dispatch, state.auth.isAuthenticated]);
 
   return (
     <LoginWrapper>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SideMenuWrapper } from './styled';
 import { Context } from '../../../context';
 
 export const SideMenu = () => {
-  const { state } = React.useContext(Context);
+  const { state } = useContext(Context);
 
   return (
     <SideMenuWrapper displayed={state.sideMenuOpen}>

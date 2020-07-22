@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RegisterWrapper } from './styled';
 import { Input, Button } from '../../components';
 import { gql, useMutation } from '@apollo/client';
 
 export const Register = () => {
-  const [errors, setErrors] = React.useState(null);
+  const [errors, setErrors] = useState(null);
 
-  const [formFields, setFormFields] = React.useState({
+  const [formFields, setFormFields] = useState({
     firstName: '',
     lastName: '',
     email: '',

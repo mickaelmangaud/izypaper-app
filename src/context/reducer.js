@@ -8,7 +8,7 @@ import {
   ADD_USER_TO_CONTEXT,
   DE_AUTHENTICATE,
   AUTH_ERROR,
-  DISPLAY_LOADER,
+  SHOW_LOADER,
   HIDE_LOADER,
 } from './actions';
 
@@ -34,7 +34,7 @@ export const reducer = (state, action) => {
       case CLOSE_DRAWER:
         return { ...state, drawerOpen: false };
 
-      case DISPLAY_LOADER:
+      case SHOW_LOADER:
         return { ...state, loaderDisplayed: true };
 
       case HIDE_LOADER:

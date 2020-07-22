@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { DrawerWrapper } from './styled';
 import { avatar } from '../../../assets/images';
 import { Context } from '../../../context';
@@ -7,7 +7,7 @@ import { useQuery, gql } from '@apollo/client';
 import axios from 'axios';
 
 export const Drawer = () => {
-  const { state, dispatch } = React.useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { data } = useQuery(APOLLO_QUERY);
 
   const logout = async () => {
