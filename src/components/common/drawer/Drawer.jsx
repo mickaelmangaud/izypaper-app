@@ -4,7 +4,7 @@ import { avatar } from '../../../assets/images';
 import { Context } from '../../../context';
 import { DE_AUTHENTICATE, AUTH_ERROR } from '../../../context/actions';
 import { useQuery, gql } from '@apollo/client';
-import axios from 'axios';
+import { axios } from '../../../utils';
 
 export const Drawer = () => {
   const { state, dispatch } = useContext(Context);
@@ -12,7 +12,7 @@ export const Drawer = () => {
 
   const logout = async () => {
     try {
-      await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/logout`, { withCredentials: true });
+      await axios.get(`/auth/logout`);
       dispatch({ type: DE_AUTHENTICATE });
       // window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME);
       window.location = 'http://www.izypaper.com';

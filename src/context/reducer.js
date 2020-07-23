@@ -13,8 +13,7 @@ import {
 } from './actions';
 
 export const reducer = (state, action) => {
-    console.log('ACTION', action);
-
+  
     switch (action.type) {
       case OPEN_SIDE_MENU:
         return { ...state, sideMenuOpen: true };

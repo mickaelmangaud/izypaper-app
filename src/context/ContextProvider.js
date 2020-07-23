@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import { ADD_USER_TO_CONTEXT, AUTH_ERROR } from './actions';
 import { reducer } from './reducer';
-import axios from 'axios';
+import { axios } from '../utils';
 
 export const Context = createContext(null);
 
@@ -31,7 +31,7 @@ export const ContextProvider =  ({ children }) => {
   useEffect(() => {
     const addSessionUserToContext = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_API_URL}/auth/user`, { withCredentials: true });
+        const response = await axios.get(`/auth/user`);
         dispatch({ type: ADD_USER_TO_CONTEXT, payload: response.data.user });
       } catch (error) {
         dispatch({ type: AUTH_ERROR, payload: error.message });

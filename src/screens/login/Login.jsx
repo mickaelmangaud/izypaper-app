@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../context';
-import axios from 'axios';
 import { useHistory  } from 'react-router-dom';
 import { LoginWrapper } from './styled';
 import { Button, Input } from '../../components';
 import { validateLogin } from './validate';
 import { SHOW_LOADER, HIDE_LOADER, ADD_USER_TO_CONTEXT } from '../../context/actions';
+import { axios } from '../../utils';
 
 export const Login = () => {
   const history = useHistory();
@@ -21,8 +21,6 @@ export const Login = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  
-
   const login = async evt => {
     evt.preventDefault();
     const validateErrors = validateLogin(credentials);
@@ -30,7 +28,7 @@ export const Login = () => {
     if (validateErrors.email || validateErrors.password) {
       setErrors({ ...validateErrors });
     } else {
-      axios.post(`${process.env.REACT_APP_BASE_API_URL}/auth/login`, credentials, { withCredentials: true })
+      axios.post(`/auth/login`, credentials)
       .then(response => {
         dispatch({ type: SHOW_LOADER });
         dispatch({ type: ADD_USER_TO_CONTEXT, payload: response.data.user });
@@ -38,7 +36,7 @@ export const Login = () => {
         history.push('/dashboard');
       })
       .catch(error => {
-        console.log('LOGIN ERROR', error);
+        // console.log('LOGIN ERROR', error);
         if (!!error.response && error.response.status === 401) {
           setErrors({credentials: 'Identifiants incorrects'});
         }
