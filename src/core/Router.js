@@ -20,7 +20,7 @@ export const AppRouter = () => {
   return(
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route exact path="/inscription" component={Register} />
+      {/* <Route exact path="/inscription" component={Register} /> */}
       <Route exact path="/creer-mon-entreprise" component={CreateBusiness} />
       <AuthRoute exact path="/dashboard" component={Dashboard} />
       <Route path="*" component={NotFound404} />
