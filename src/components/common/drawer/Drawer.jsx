@@ -24,7 +24,7 @@ export const Drawer = () => {
   return (
     <DrawerWrapper open={state.drawerOpen}>
       <div className="userinfos">
-4        <img src={avatar} alt="user avatar" className="avatar"/>
+        <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && data.currentUser.email}</h1>
         <p className="description">Juriste chez Novaltis Consulting</p>
       </div>
