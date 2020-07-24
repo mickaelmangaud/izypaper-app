@@ -73,12 +73,13 @@ export const LoginWrapper = styled.div`
       height: 540px;
       min-width: 500px;
       position: relative;
-      margin-top: 30%;
+      
       @media (max-width: 768px) {
         padding: 5% 15%;
         box-shadow: none;
         width: 100%;
         min-width: initial;
+        margin-top: 30%;
       }
 
       h1 {
