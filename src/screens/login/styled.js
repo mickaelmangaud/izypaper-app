@@ -66,7 +66,7 @@ export const LoginWrapper = styled.div`
     form {
       background-color: #fff;
       box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 1px;
-      padding: 60px;
+      padding: 60px 60px 0 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,14 +93,22 @@ export const LoginWrapper = styled.div`
         transition: all .2s ease;
       }
 
+      input {
+        margin-bottom: 24px;
+      }
+
       button {
         font-size: 18px;
-        margin-top: 48px;
+        margin-top: 24px;
       }
 
       .errors {
-        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        flex: 1;
 
         p {
           color: rgba(255,0,0,.5);
