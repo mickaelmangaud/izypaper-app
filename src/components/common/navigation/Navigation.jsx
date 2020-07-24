@@ -5,7 +5,7 @@ import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from '../../../context/actions';
 
 export const Navigation = () => {
   const { state, dispatch } = useContext(Context);
-  const displayNavBar = state.auth.isAuthenticated && window.location.pathname !== '/';
+  const displayNavBar = state.auth.isAuthenticated || window.location.pathname !== '/';
 
   const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });
   const handleClickBurger = () => dispatch({ type: TOGGLE_SIDE_MENU });

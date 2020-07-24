@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Login, Dashboard, NotFound404, CreateBusiness, Register } from '../screens';
+import { Login, Dashboard, NotFound404, CreateBusiness } from '../screens';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const state = JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME));
