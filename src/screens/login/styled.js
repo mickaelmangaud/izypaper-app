@@ -13,11 +13,40 @@ export const LoginWrapper = styled.div`
     background-image: none;
   }
 
+  .back-arrow {
+    position: absolute;
+    left: 5%;
+    top: 3%;
+    display: flex;
+    cursor: pointer;
+      
+
+    .material-icons {
+      color: white;
+      font-size: 42px;
+      position: relative;
+      bottom: 10px;
+      @media (max-width: 768px) {
+        color: ${({ theme }) => theme.colors.primary};
+      }
+    }
+
+    p {
+      color: white;
+      font-family: 'Ubuntu', sans-serif;
+      @media (max-width: 768px) {
+        color: ${({ theme }) => theme.colors.primary};
+      }
+    }
+  }
+
   .infos {
     flex: 1;
+    margin: 5%;
     @media (max-width: 980px) {
       display: none;
     }
+
   }
 
   .form-wrapper { 
@@ -44,6 +73,7 @@ export const LoginWrapper = styled.div`
       height: 540px;
       min-width: 500px;
       position: relative;
+      margin-bottom: 24px;
       @media (max-width: 768px) {
         padding: 5% 15%;
         box-shadow: none;
@@ -59,13 +89,13 @@ export const LoginWrapper = styled.div`
       }
 
       input, button {
-        margin-bottom: 24px;
         font-family: 'Lato', sans-serif;
         transition: all .2s ease;
       }
 
       button {
         font-size: 18px;
+        margin-top: 48px;
       }
 
       .errors {

@@ -51,8 +51,16 @@ export const Login = () => {
     }
   }, [history, state.auth.isAuthenticated,showLoader, hideLoader]);
 
+  const handleBackToWebsite = () => window.location = 'https://www.izypaper.com';
+
   return (
     <LoginWrapper>
+      <div className="back-arrow" onClick={handleBackToWebsite}>
+        <span className="material-icons">
+          keyboard_arrow_left
+        </span>
+        <p>Retour au site web</p>
+      </div>
       <div className="infos">
         
       </div>
