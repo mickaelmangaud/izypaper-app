@@ -101,6 +101,7 @@ export const LoginWrapper = styled.div`
       button {
         font-size: 18px;
         margin-top: 24px;
+        cursor: pointer;
       }
 
       .errors {
