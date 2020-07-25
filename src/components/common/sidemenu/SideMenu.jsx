@@ -7,7 +7,7 @@ export const SideMenu = () => {
 
   return (
     <SideMenuWrapper displayed={state.sideMenuOpen}>
-      SideMnusdf
+      
     </SideMenuWrapper>
   )
 }

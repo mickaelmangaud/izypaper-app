@@ -26,10 +26,10 @@ export const Drawer = () => {
       <div className="userinfos">
         <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
-        <p className="description">Juriste chez Novaltis Consulting</p>
+        <p className="description">Juriste chez Izypaper</p>
       </div>
       <div className="content">
-        content
+        
       </div>
       <div className="footer">
         <p onClick={logout}>Déconnexion</p>
