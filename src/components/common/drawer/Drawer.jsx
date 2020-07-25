@@ -25,7 +25,7 @@ export const Drawer = () => {
     <DrawerWrapper open={state.drawerOpen}>
       <div className="userinfos">
         <img src={avatar} alt="user avatar" className="avatar"/>
-        <h1 className="username">{!!data && data.currentUser.email}</h1>
+        <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
         <p className="description">Juriste chez Novaltis Consulting</p>
       </div>
       <div className="content">
@@ -41,8 +41,8 @@ export const Drawer = () => {
 const APOLLO_QUERY = gql`
   query {
     currentUser {
-      id
-      email
+      firstName
+      lastName
     }
   }
 `;

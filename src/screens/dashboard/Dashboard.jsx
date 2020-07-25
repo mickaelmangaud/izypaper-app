@@ -7,11 +7,14 @@ export const Dashboard = () => {
 
   return (
     <ScreenWrapper>
-      <h1 style={{fontSize: '36px', color: '#048b9a', marginBottom: '24px'}}>
+      <h1 style={{fontSize: '36px', color: '#048b9a', marginBottom: '24px', fontFamily: 'Ubuntu'}}>
         Dashboard
       </h1>
+      
       <Paper>
-        Bienvenue {!!data && data.currentUser.email}
+        <p style={{ fontFamily: 'Ubuntu', color: 'rgba(0,0,0, .7)' }}>Bienvenue {!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</p>
+        <br />
+        <hr style={{ border: 'none', borderTop: '2px solid #048b9a'}}/>
       </Paper>
     </ScreenWrapper>
   )
@@ -20,8 +23,8 @@ export const Dashboard = () => {
 const APOLLO_QUERY = gql`
   query {
     currentUser {
-      id
-      email
+      firstName
+      lastName
     }
   }
 `;
