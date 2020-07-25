@@ -24,6 +24,7 @@ export const Drawer = () => {
   return (
     <DrawerWrapper open={state.drawerOpen}>
       <span class="material-icons close" onClick={closeDrawer}>close</span>
+      <span class="material-icons quit" onClick={logout}>exit_to_app</span>
       <div className="userinfos">
         <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
@@ -33,7 +34,7 @@ export const Drawer = () => {
         
       </div>
       <div className="footer">
-        <p onClick={logout}>Déconnexion</p>
+
       </div>
     </DrawerWrapper>
   )
