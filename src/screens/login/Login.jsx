@@ -5,39 +5,49 @@ import { LoginWrapper } from './styled';
 import { Button, Input } from '../../components';
 import { validateLogin } from './validate';
 import { axios } from '../../utils';
+import { useSpring, animated } from 'react-spring';
 
 export const Login = () => {
   const history = useHistory();
-  const { state, addUserToConText, showLoader, hideLoader } = useContext(Context);
-  const [errors, setErrors] = useState({});
+  const { state, addUserToContext, showLoader, hideLoader } = useContext(Context);
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   });
+  const [errors, setErrors] = useState({});
+  
+  const props = useSpring({
+    from: { bottom: "100vh" },
+    to: { bottom: "0%" },
+    config: { duration: 300 },
+    delay: 300
+  });
 
   const handleOnChangeInput = e => {
     setErrors({});
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    setCredentials({ 
+      ...credentials, 
+      [e.target.name]: e.target.value
+    });
   };
 
   const login = async evt => {
     evt.preventDefault();
-    const validateErrors = validateLogin(credentials);
+    const errors = validateLogin(credentials);
 
-    if (validateErrors.email || validateErrors.password) {
-      setErrors({ ...validateErrors });
+    if (errors.email || errors.password) {
+      setErrors({ ...errors });
     } else {
       axios.post(`/auth/login`, credentials)
       .then(response => {
         showLoader();
-        addUserToConText(response.data.user);
+        addUserToContext(response.data.user);
         setTimeout(() => hideLoader(), 800);
         history.push('/dashboard');
       })
       .catch(error => {
-        // console.log('LOGIN ERROR', error);
         if (!!error.response && error.response.status === 401) {
-          setErrors({credentials: 'Identifiants incorrects'});
+          setErrors({ credentials: 'Identifiants incorrects' });
         }
       })
     }
@@ -65,7 +75,7 @@ export const Login = () => {
         
       </div>
       <div className="form-wrapper">
-        <form onSubmit={login}>
+        <animated.form onSubmit={login} style={props}>
           <h1>Connexion</h1>
           <Input
             label="Email"
@@ -87,13 +97,15 @@ export const Login = () => {
           <Button 
             disabled={true}
             label={'Se connecter'}
-            />
+          />
           <div className="errors">
-            {Object.entries(errors).map(([key, value]) => 
-              value && <p key={key}>{value}</p>
+            {Object.values(errors).map(value => value && 
+              <p key={value}>
+                {value}
+              </p>
             )}
           </div>
-        </form>
+        </animated.form>
       </div>
     </LoginWrapper>
   )

@@ -7,7 +7,7 @@ export const SideMenu = () => {
 
   return (
     <SideMenuWrapper displayed={state.sideMenuOpen}>
-      <span class="material-icons close" onClick={closeSideMenu}>menu_open</span>
+      <span className="material-icons close" onClick={closeSideMenu}>menu_open</span>
     </SideMenuWrapper>
   )
 }

@@ -23,8 +23,8 @@ export const Drawer = () => {
 
   return (
     <DrawerWrapper open={state.drawerOpen}>
-      <span class="material-icons close" onClick={closeDrawer}>close</span>
-      <span class="material-icons quit" onClick={logout}>exit_to_app</span>
+      <span className="material-icons close" onClick={closeDrawer}>close</span>
+      <span className="material-icons quit" onClick={logout}>exit_to_app</span>
 
       <div className="userinfos">
         <img src={images.avatar} alt="user avatar" className="avatar"/>
