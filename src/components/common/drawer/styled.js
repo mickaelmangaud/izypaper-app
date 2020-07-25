@@ -17,10 +17,10 @@ export const DrawerWrapper = styled.div`
     left: ${({ open }) => open ? '0' : '100vw'};
   }
 
-  .quit {
+  .quit, .close {
     color: ${({ theme }) => theme.colors.primary};
     position: absolute;
-    left: 16px;
+    left: 8px;
     top: 16px;
     font-size: 24px;
     border-radius: 50%;
@@ -32,17 +32,8 @@ export const DrawerWrapper = styled.div`
   }
 
   .close {
-    color: ${({ theme }) => theme.colors.primary};
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    font-size: 24px;
-    border-radius: 50%;
-    padding: 8px;
-    transition: all .3s ease;
-    &:hover {
-      transform: rotate(180deg);
-    }
+    left: initial;
+    right: 8px;
   }
 
   .userinfos {

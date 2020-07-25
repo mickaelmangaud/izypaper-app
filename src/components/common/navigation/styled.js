@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { background } from '../../../assets/images';
+import { images } from '../../../assets';
 
 export const NavigationWrapper = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const NavigationWrapper = styled.div`
   display: ${({ displayed }) => displayed ? 'flex' : 'none '};
   justify-content: space-between;
   padding: 0 12px;
-  background-image: url(${background});
+  background-image: url(${images.background});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: -1px top;

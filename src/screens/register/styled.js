@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { background } from '../../assets/images';
+import { images } from '../../assets';
 
 export const RegisterWrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
-	background-image: url(${background});
+	background-image: url(${images.background});
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center top;
