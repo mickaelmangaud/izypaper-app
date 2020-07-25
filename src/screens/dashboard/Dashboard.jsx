@@ -7,11 +7,11 @@ export const Dashboard = () => {
 
   return (
     <ScreenWrapper>
-      <h1 style={{fontSize: '48px', color: '#048b9a', marginBottom: '24px'}}>
-        Bienvenue {!!data && data.currentUser.email}
+      <h1 style={{fontSize: '36px', color: '#048b9a', marginBottom: '24px'}}>
+        Dashboard
       </h1>
       <Paper>
-        Dashboard
+        Bienvenue {!!data && data.currentUser.email}
       </Paper>
     </ScreenWrapper>
   )
