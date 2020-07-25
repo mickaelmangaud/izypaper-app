@@ -13,6 +13,8 @@ export const Drawer = () => {
     try {
       await axios.get(`/auth/logout`);
       deAuthenticate();
+      window.localStorage.clear('izypaper-app_context')
+      // window.localStorage.clear('izypaper-apollo-cache')
       window.location.reload();
     } catch (error) {
       authError(error.message);
