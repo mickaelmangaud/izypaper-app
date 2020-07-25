@@ -1,6 +1,10 @@
 {
   "short_name": "Izypaper",
   "name": "Izypaper",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#048b9a",
+  "background_color": "#048b9a",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +22,4 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "*",
-  "display": "standalone",
-  "theme_color": "#048b9a",
-  "background_color": "#048b9a"
 }
