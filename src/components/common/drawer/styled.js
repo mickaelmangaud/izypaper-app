@@ -2,18 +2,20 @@ import styled from 'styled-components';
 
 export const DrawerWrapper = styled.div`
   position: absolute;
-  /* top: 64px; */
   left: ${({ open }) => open ? 'calc(100vw - 500px)' : '100vw'};
   opacity: ${({ open }) => open ? 1 : 0};
   width: 500px;
-  /* height: calc(100vh - 64px); */
   height: 100vh;
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
   transition: all .2s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
+  @media (max-width: 760px) {
+    width: 100vw;
+    left: ${({ open }) => open ? '0' : '100vw'};
+  }
 
   .close {
     color: ${({ theme }) => theme.colors.primary};
@@ -37,7 +39,6 @@ export const DrawerWrapper = styled.div`
     
     .avatar {
       margin: 10% 0;
-      width: 50%;
       height: 50%;
       border-radius: 50%;
     }
