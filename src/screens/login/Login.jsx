@@ -31,8 +31,8 @@ export const Login = () => {
     });
   };
 
-  const login = async evt => {
-    evt.preventDefault();
+  const login = async e => {
+    e.preventDefault();
     const errors = validateLogin(credentials);
 
     if (errors.email || errors.password) {
@@ -45,11 +45,12 @@ export const Login = () => {
         setTimeout(() => hideLoader(), 800);
         history.push('/dashboard');
       })
-      .catch(error => {
-        if (!!error.response && error.response.status === 401) {
+      .catch(err => {
+        if (!!err.response && err.response.status === 401) {
+          console.log(`Login Error :`, err);
           setErrors({ credentials: 'Identifiants incorrects' });
         }
-      })
+      });
     }
   }
 
