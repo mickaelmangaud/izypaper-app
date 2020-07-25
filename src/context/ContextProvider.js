@@ -34,7 +34,7 @@ export const ContextProvider =  ({ children }) => {
   );
 
   /* Actions */
-  const addUserToConText = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
+  const addUserToContext = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
   const deAuthenticate = () => dispatch({ type: DE_AUTHENTICATE });
   const authError = error => dispatch({ type: AUTH_ERROR, payload: error });
   const showLoader = () => dispatch({ type: SHOW_LOADER });
@@ -54,7 +54,7 @@ export const ContextProvider =  ({ children }) => {
     const addSessionUserToContext = async () => {
       try {
         const response = await axios.get(`/auth/user`);
-        addUserToConText(response.data.user);
+        addUserToContext(response.data.user);
       } catch (error) {
         authError(error.message);
       }
@@ -68,7 +68,7 @@ export const ContextProvider =  ({ children }) => {
         state, dispatch,
         deAuthenticate,
         authError,
-        addUserToConText,
+        addUserToContext,
         showLoader,
         hideLoader,
         toggleDrawer,

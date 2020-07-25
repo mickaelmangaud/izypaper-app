@@ -8,7 +8,7 @@ import { axios } from '../../utils';
 
 export const Login = () => {
   const history = useHistory();
-  const { state, addUserToConText, showLoader, hideLoader } = useContext(Context);
+  const { state, addUserToContext, showLoader, hideLoader } = useContext(Context);
   const [errors, setErrors] = useState({});
   const [credentials, setCredentials] = useState({
     email: '',
@@ -30,7 +30,7 @@ export const Login = () => {
       axios.post(`/auth/login`, credentials)
       .then(response => {
         showLoader();
-        addUserToConText(response.data.user);
+        addUserToContext(response.data.user);
         setTimeout(() => hideLoader(), 800);
         history.push('/dashboard');
       })
