@@ -13,7 +13,7 @@ export const Drawer = () => {
     try {
       await axios.get(`/auth/logout`);
       deAuthenticate();
-      window.location = 'http://www.izypaper.com';
+      window.location.reload();
     } catch (error) {
       authError(error.message);
     }

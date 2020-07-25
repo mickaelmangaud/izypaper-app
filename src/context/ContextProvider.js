@@ -36,12 +36,12 @@ export const ContextProvider =  ({ children }) => {
   const showLoader = () => dispatch({ type: SHOW_LOADER });
   const hideLoader = () => dispatch({ type: HIDE_LOADER });
   
-  /* Enable context persistence on window reload */
+  /* Saves state in localStorage on updates */
   useEffect(() => {
     localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(state));
   }, [state])
   
-  /* Add expression-session user to context if user is logged in */
+  /* Add expression-session user to context if is logged in */
   useEffect(() => {
     const addSessionUserToContext = async () => {
       try {
