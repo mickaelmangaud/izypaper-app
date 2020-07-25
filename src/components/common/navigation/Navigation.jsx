@@ -5,7 +5,7 @@ import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from '../../../context/actions';
 
 export const Navigation = () => {
   const { state, toggleDrawer, toggleSideMenu } = useContext(Context);
-  const displayNavBar = state.auth.isAuthenticated || window.location.pathname !== '/' || window.location.pathname !== '/inscription';
+  const displayNavBar = state.auth.isAuthenticated && window.location.pathname !== '/' && window.location.pathname !== '/inscription';
 
   console.log(window.location.pathname !== '/inscription')
   return (
