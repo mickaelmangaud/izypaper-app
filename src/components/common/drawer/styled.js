@@ -24,7 +24,7 @@ export const DrawerWrapper = styled.div`
     border-radius: 50%;
     padding: 8px;
     &:hover {
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: rgba(4, 139, 154, .5);
       color: white;
     }
   }
