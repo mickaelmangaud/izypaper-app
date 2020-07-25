@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { background } from '../../../assets/images';
+import { images } from '../../../assets';
 
 export const LoaderWrapper = styled.div`
   display: ${({displayed}) => displayed ? 'flex' : 'none'};
@@ -9,7 +9,7 @@ export const LoaderWrapper = styled.div`
   height: 100vh;
   width: 100vw;
   top: 0;
-  background-image: url(${background});
+  background-image: url(${images.background});
   background-position: top center;
   background-size: cover;
 

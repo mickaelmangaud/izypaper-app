@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const DrawerWrapper = styled.div`
   position: absolute;
-  left: ${({ open }) => open ? 'calc(100vw - 500px)' : '100vw'};
+  left: ${({ open }) => open ? 'calc(100vw - 420px)' : '100vw'};
   opacity: ${({ open }) => open ? 1 : 0};
-  width: 500px;
+  width: 420px;
   height: 100vh;
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
@@ -17,10 +17,10 @@ export const DrawerWrapper = styled.div`
     left: ${({ open }) => open ? '0' : '100vw'};
   }
 
-  .close {
+  .quit, .close {
     color: ${({ theme }) => theme.colors.primary};
     position: absolute;
-    right: 16px;
+    left: 8px;
     top: 16px;
     font-size: 24px;
     border-radius: 50%;
@@ -29,6 +29,11 @@ export const DrawerWrapper = styled.div`
     &:hover {
       transform: rotate(180deg);
     }
+  }
+
+  .close {
+    left: initial;
+    right: 8px;
   }
 
   .userinfos {
