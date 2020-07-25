@@ -25,14 +25,17 @@ export const Drawer = () => {
     <DrawerWrapper open={state.drawerOpen}>
       <span class="material-icons close" onClick={closeDrawer}>close</span>
       <span class="material-icons quit" onClick={logout}>exit_to_app</span>
+
       <div className="userinfos">
         <img src={images.avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
         <p className="description">Juriste chez Izypaper</p>
       </div>
+
       <div className="content">
         
       </div>
+      
       <div className="footer">
 
       </div>
