@@ -46,8 +46,7 @@ export const DrawerWrapper = styled.div`
     .username {
       color: rgba(0,0,0, .8);
       font-family: 'Ubuntu', sans-serif;
-      font-size: 36px;
-      margin-bottom: 12px;
+      font-size: 24px;
     }
 
     .description {
