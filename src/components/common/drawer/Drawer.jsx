@@ -14,7 +14,7 @@ export const Drawer = () => {
       await axios.get(`/auth/logout`);
       deAuthenticate();
       window.localStorage.clear(process.env.REACT_APP_CONTEXT_NAME);
-      // window.localStorage.clear('izypaper-apollo-cache')
+      window.localStorage.clear('izypaper-apollo-cache')
       window.location.reload();
     } catch (error) {
       authError(error.message);
