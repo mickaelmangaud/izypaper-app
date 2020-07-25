@@ -23,9 +23,9 @@ export const DrawerWrapper = styled.div`
     font-size: 24px;
     border-radius: 50%;
     padding: 8px;
+    transition: all .3s ease;
     &:hover {
-      background-color: rgba(4, 139, 154, .5);
-      color: white;
+      transform: rotate(180deg);
     }
   }
 

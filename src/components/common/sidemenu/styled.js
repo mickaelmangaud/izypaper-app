@@ -18,9 +18,5 @@ export const SideMenuWrapper = styled.div`
     font-size: 24px;
     border-radius: 50%;
     padding: 8px;
-    &:hover {
-      background-color: rgba(4, 139, 154, .5);
-      color: white;
-    }
   }
 `;
