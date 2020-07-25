@@ -14,7 +14,10 @@ export const Register = () => {
     password_confirmation: ''
   });
 
-  const handleInputChange = e => setFormFields({ ...formFields, [e.target.name]: e.target.value });
+  const handleInputChange = e => {
+    setErrors(null);
+    setFormFields({ ...formFields, [e.target.name]: e.target.value });
+  };
 
   const [createUser] = useMutation(CREATE_USER_QUERY, {
     onError: err => setErrors(err.message),

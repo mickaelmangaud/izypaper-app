@@ -4,15 +4,13 @@ import { Context } from '../../../context';
 import { TOGGLE_DRAWER, TOGGLE_SIDE_MENU } from '../../../context/actions';
 
 export const Navigation = () => {
-  const { state, dispatch } = useContext(Context);
+  const { state, toggleDrawer, toggleSideMenu } = useContext(Context);
   const displayNavBar = state.auth.isAuthenticated || window.location.pathname !== '/' || window.location.pathname !== '/inscription';
 
-  const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });
-  const handleClickBurger = () => dispatch({ type: TOGGLE_SIDE_MENU });
   console.log(window.location.pathname !== '/inscription')
   return (
     <NavigationWrapper displayed={displayNavBar}>
-      <BurgerWrapper className="burger" onClick={handleClickBurger}>
+      <BurgerWrapper className="burger" onClick={toggleSideMenu}>
         <span className="material-icons">
           {!state.sideMenuOpen ? 'menu' : 'menu_open'}
         </span>

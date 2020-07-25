@@ -7,7 +7,11 @@ import {
   AUTH_ERROR, 
   DE_AUTHENTICATE, 
   SHOW_LOADER, 
-  HIDE_LOADER 
+  HIDE_LOADER,
+  TOGGLE_DRAWER,
+  CLOSE_DRAWER,
+  TOGGLE_SIDE_MENU,
+  CLOSE_SIDE_MENU,
 } from './actions';
 
 const defaultValue = {
@@ -30,11 +34,15 @@ export const ContextProvider =  ({ children }) => {
   );
 
   /* Actions */
+  const addUserToConText = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
   const deAuthenticate = () => dispatch({ type: DE_AUTHENTICATE });
   const authError = error => dispatch({ type: AUTH_ERROR, payload: error });
-  const addUserToConText = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
   const showLoader = () => dispatch({ type: SHOW_LOADER });
   const hideLoader = () => dispatch({ type: HIDE_LOADER });
+  const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });
+  const closeDrawer = () => dispatch({ type: CLOSE_DRAWER });
+  const toggleSideMenu = () => dispatch({ type: TOGGLE_SIDE_MENU });
+  const closeSideMenu = () => dispatch({ type: CLOSE_SIDE_MENU });
   
   /* Saves state in localStorage on updates */
   useEffect(() => {
@@ -62,7 +70,11 @@ export const ContextProvider =  ({ children }) => {
         authError,
         addUserToConText,
         showLoader,
-        hideLoader
+        hideLoader,
+        toggleDrawer,
+        closeDrawer,
+        toggleSideMenu,
+        closeSideMenu
       }}>
       {children}
     </Context.Provider>
