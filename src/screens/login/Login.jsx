@@ -17,8 +17,8 @@ export const Login = () => {
   const [errors, setErrors] = useState({});
   
   const props = useSpring({
-    from: { bottom: "100vh" },
-    to: { bottom: "0%" },
+    from: { top: "100vh" },
+    to: { top: "0%" },
     config: { duration: 300 },
     delay: 300
   });
