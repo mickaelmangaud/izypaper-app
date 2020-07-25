@@ -7,7 +7,7 @@ export const StyledScreenWrapper = styled.div`
   margin-top: 64px;
   overflow-y: scroll;
   padding-bottom: 150px;
-  background-color: #eee;
+  background-color: #fff;
 
 
   &::-webkit-scrollbar { width: 4px }
