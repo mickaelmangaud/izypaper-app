@@ -46,6 +46,7 @@ export const DrawerWrapper = styled.div`
       margin: 10% 0;
       height: 50%;
       border-radius: 50%;
+      border: 2px solid rgb(4, 139, 154);
     }
 
     .username {
