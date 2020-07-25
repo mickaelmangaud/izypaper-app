@@ -2,17 +2,32 @@ import styled from 'styled-components';
 
 export const DrawerWrapper = styled.div`
   position: absolute;
-  top: 64px;
+  /* top: 64px; */
   left: ${({ open }) => open ? 'calc(100vw - 500px)' : '100vw'};
   opacity: ${({ open }) => open ? 1 : 0};
   width: 500px;
-  height: calc(100vh - 64px);
+  /* height: calc(100vh - 64px); */
+  height: 100vh;
   background-color: white;
   box-shadow: rgba(0,0,0,0.2) 0px 0px 5px 1px;
   transition: all .2s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
+
+  .close {
+    color: ${({ theme }) => theme.colors.primary};
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 8px;
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: white;
+    }
+  }
 
   .userinfos {
     height: 500px;
@@ -46,12 +61,15 @@ export const DrawerWrapper = styled.div`
   }
 
   .footer {
-    text-align: right;
-    font-size: 12px;
+    display: flex;
     padding: 12px;
-    cursor: pointer;
+    justify-content: flex-end;
+    align-items: center;
+
     p {
-      color: rgba(0,0,0,.4);
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'Ubuntu', sans-serif;
     }
   }
 `;

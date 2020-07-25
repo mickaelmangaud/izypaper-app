@@ -6,7 +6,7 @@ import { useQuery, gql } from '@apollo/client';
 import { axios } from '../../../utils';
 
 export const Drawer = () => {
-  const { state, deAuthenticate, authError } = useContext(Context);
+  const { state, deAuthenticate, authError, closeDrawer } = useContext(Context);
   const { data } = useQuery(APOLLO_QUERY);
 
   const logout = async () => {
@@ -23,6 +23,7 @@ export const Drawer = () => {
 
   return (
     <DrawerWrapper open={state.drawerOpen}>
+      <span class="material-icons close" onClick={closeDrawer}>close</span>
       <div className="userinfos">
         <img src={avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
