@@ -5,7 +5,7 @@ import { LoginWrapper } from './styled';
 import { Button, Input } from '../../components';
 import { validateLogin } from './validate';
 import { axios } from '../../utils';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, config } from 'react-spring';
 
 export const Login = () => {
   const history = useHistory();
@@ -16,10 +16,10 @@ export const Login = () => {
   });
   const [errors, setErrors] = useState({});
   
-  const props = useSpring({
-    from: { top: "100vh" },
-    to: { top: "0%" },
-    config: { duration: 300 },
+  const formAnimation = useSpring({
+    from: { bottom: "100vh" },
+    to: { bottom: "0%" },
+    config: config.wobbly,
     delay: 300
   });
 
@@ -66,17 +66,21 @@ export const Login = () => {
 
   return (
     <LoginWrapper>
-      <div className="back-arrow" onClick={handleBackToWebsite}>
+      <div 
+        className="back-arrow"
+        onClick={handleBackToWebsite}>
+
         <span className="material-icons">
           keyboard_arrow_left
         </span>
         <p>Retour au site web</p>
+      
       </div>
       <div className="infos">
         
       </div>
       <div className="form-wrapper">
-        <animated.form onSubmit={login} style={props}>
+        <animated.form onSubmit={login} style={formAnimation}>
           <h1>Connexion</h1>
           <Input
             label="Email"
