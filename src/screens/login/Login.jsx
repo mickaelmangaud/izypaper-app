@@ -5,7 +5,6 @@ import { LoginWrapper } from './styled';
 import { Button, Input } from '../../components';
 import { validateLogin } from './validate';
 import { axios } from '../../utils';
-import { useSpring, animated, config } from 'react-spring';
 
 export const Login = () => {
   const history = useHistory();
@@ -15,13 +14,6 @@ export const Login = () => {
     password: '',
   });
   const [errors, setErrors] = useState({});
-  
-  const formAnimation = useSpring({
-    from: { bottom: "100vh" },
-    to: { bottom: "0%" },
-    config: config.wobbly,
-    delay: 300
-  });
 
   const handleOnChangeInput = e => {
     setErrors({});
@@ -60,7 +52,7 @@ export const Login = () => {
       history.push('/dashboard');
       setTimeout(() => hideLoader(), 800);
     }
-  }, [history, state.auth.isAuthenticated,showLoader, hideLoader]);
+  }, [history, state.auth.isAuthenticated, showLoader, hideLoader]);
 
   const handleBackToWebsite = () => window.location = 'https://www.izypaper.com';
 
@@ -80,7 +72,7 @@ export const Login = () => {
         
       </div>
       <div className="form-wrapper">
-        <animated.form onSubmit={login} style={formAnimation}>
+        <form onSubmit={login}>
           <h1>Connexion</h1>
           <Input
             label="Email"
@@ -110,7 +102,7 @@ export const Login = () => {
               </p>
             )}
           </div>
-        </animated.form>
+        </form>
       </div>
     </LoginWrapper>
   )

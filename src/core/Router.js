@@ -7,9 +7,9 @@ const AuthRoute = ({ component: Component, ...rest }) => {
   const { state } = useContext(Context);
   return (
     <Route
-      {...rest}
-      render={(props) => !state || !state.auth.isAuthenticated
-        ? <Redirect to="/" /> : <Component {...props} />
+      { ...rest }
+      render={props => !state || !state.auth.isAuthenticated
+        ? <Redirect to="/" /> : <Component { ...props } />
       }
     />
   );

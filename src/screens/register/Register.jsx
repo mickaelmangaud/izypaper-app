@@ -43,7 +43,6 @@ export const Register = () => {
               onChange={handleInputChange}
               className="form-input"
             />
-
             <Input 
               name="lastName"
               label="Nom"
@@ -51,7 +50,6 @@ export const Register = () => {
               onChange={handleInputChange}
               className="form-input"
             />
-
             <Input 
               name="email"
               label="Adresse email"
@@ -59,7 +57,6 @@ export const Register = () => {
               onChange={handleInputChange}
               className="form-input"
             />
-
             <Input 
               name="password"
               label="Mot de passe"
@@ -67,7 +64,6 @@ export const Register = () => {
               onChange={handleInputChange}
               className="form-input"
             />
-
             <Input 
               name="password_confirmation"
               label="Confirmation du mot de passe"
