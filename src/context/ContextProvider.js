@@ -1,17 +1,11 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import { reducer } from './reducer';
 import { axios } from '../utils';
-
 import { 
-  ADD_USER_TO_CONTEXT, 
-  AUTH_ERROR, 
-  DE_AUTHENTICATE, 
-  SHOW_LOADER, 
-  HIDE_LOADER,
-  TOGGLE_DRAWER,
-  CLOSE_DRAWER,
-  TOGGLE_SIDE_MENU,
-  CLOSE_SIDE_MENU,
+  ADD_USER_TO_CONTEXT, AUTH_ERROR, DE_AUTHENTICATE, 
+  SHOW_LOADER, HIDE_LOADER,
+  TOGGLE_DRAWER, CLOSE_DRAWER,
+  TOGGLE_SIDE_MENU, CLOSE_SIDE_MENU,
 } from './actions';
 
 const defaultValue = {
@@ -35,8 +29,8 @@ export const ContextProvider =  ({ children }) => {
 
   /* Actions */
   const addUserToContext = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
-  const deAuthenticate = () => dispatch({ type: DE_AUTHENTICATE });
   const authError = error => dispatch({ type: AUTH_ERROR, payload: error });
+  const deAuthenticate = () => dispatch({ type: DE_AUTHENTICATE });
   const showLoader = () => dispatch({ type: SHOW_LOADER });
   const hideLoader = () => dispatch({ type: HIDE_LOADER });
   const toggleDrawer = () => dispatch({ type: TOGGLE_DRAWER });
@@ -51,7 +45,7 @@ export const ContextProvider =  ({ children }) => {
   
   /* Add expression-session user to context if is logged in */
   useEffect(() => {
-    const addSessionUserToContext = async () => {
+    async function addSessionUserToContext() {
       try {
         const response = await axios.get(`/auth/user`);
         addUserToContext(response.data.user);
@@ -65,17 +59,12 @@ export const ContextProvider =  ({ children }) => {
 
   return (
     <Context.Provider value={{
-        state, dispatch,
-        deAuthenticate,
-        authError,
-        addUserToContext,
-        showLoader,
-        hideLoader,
-        toggleDrawer,
-        closeDrawer,
-        toggleSideMenu,
-        closeSideMenu
-      }}>
+        state, dispatch, 
+        addUserToContext, authError, deAuthenticate,
+        showLoader, hideLoader,
+        toggleDrawer, closeDrawer,
+        toggleSideMenu, closeSideMenu
+    }}>
       {children}
     </Context.Provider>
   )

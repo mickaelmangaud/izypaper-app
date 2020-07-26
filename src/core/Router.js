@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Login, Dashboard, NotFound404, CreateBusiness, Register } from '../screens';
+import { Context } from '../context';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
-  const state = JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME));
+  const { state } = useContext(Context);
   return (
     <Route
       {...rest}
-      render={(props) => 
-        !state || !state.auth.isAuthenticated
-        ? <Redirect to="/" /> 
-        : <Component {...props} />
+      render={(props) => !state || !state.auth.isAuthenticated
+        ? <Redirect to="/" /> : <Component {...props} />
       }
     />
   );
