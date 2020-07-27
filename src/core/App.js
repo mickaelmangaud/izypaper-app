@@ -5,7 +5,6 @@ import { ContextProvider } from '../context';
 import { theme, GlobalStyles } from '../utils';
 import { AppRouter } from './Router';
 import { Navigation, Drawer, SideMenu, Loader } from '../components';
-import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {
   return (
@@ -13,13 +12,11 @@ export const App = () => {
       <ContextProvider>
         <ApolloWrapper>
           <GlobalStyles />
-          <BrowserRouter>
-            <Loader />
-            <SideMenu />  
-            <Navigation />
-            <Drawer />
-            <AppRouter />
-          </BrowserRouter>
+          <Loader />
+          <SideMenu />  
+          <Navigation />
+          <Drawer />
+          <AppRouter />
         </ApolloWrapper>
       </ContextProvider>
     </ThemeProvider>
