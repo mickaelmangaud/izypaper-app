@@ -46,6 +46,8 @@ export const Login = () => {
     }
   }
 
+  const loginWithGoogle = e => window.location = 'http://localhost:5000/auth/google'
+
   useEffect(() => {
     if(state.auth.isAuthenticated) {
       showLoader();
@@ -103,6 +105,11 @@ export const Login = () => {
             )}
           </div>
         </form>
+            <Button 
+              disabled={true}
+              label={'Se connecter avec Google'}
+              onClick={loginWithGoogle}
+            />
       </div>
     </LoginWrapper>
   )
