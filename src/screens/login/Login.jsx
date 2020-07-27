@@ -46,7 +46,7 @@ export const Login = () => {
     }
   }
 
-  const loginWithGoogle = e => window.location = 'http://localhost:5000/auth/google'
+  const loginWithGoogle = e => window.location = `${process.env.REACT_APP_BASE_API_URL}/auth/google`;
 
   useEffect(() => {
     if(state.auth.isAuthenticated) {
