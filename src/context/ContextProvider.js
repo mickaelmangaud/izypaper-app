@@ -27,6 +27,25 @@ export const ContextProvider =  ({ children }) => {
     JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue
   );
 
+  /* Saves state in localStorage on updates */
+  useEffect(() => {
+    localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(state));
+  }, [state])
+  
+  /* Add express-session user to context if is logged in */
+  useEffect(() => {
+    async function addSessionUserToContext() {
+      try {
+        const response = await axios.get(`/auth/user`);
+        addUserToContext(response.data.user);
+      } catch (error) {
+        authError(error.message);
+      }
+    }
+    
+    addSessionUserToContext();
+  }, []);
+
   /* Actions */
   const addUserToContext = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
   const authError = error => dispatch({ type: AUTH_ERROR, payload: error });
@@ -37,34 +56,14 @@ export const ContextProvider =  ({ children }) => {
   const closeDrawer = () => dispatch({ type: CLOSE_DRAWER });
   const toggleSideMenu = () => dispatch({ type: TOGGLE_SIDE_MENU });
   const closeSideMenu = () => dispatch({ type: CLOSE_SIDE_MENU });
-  
-  /* Saves state in localStorage on updates */
-  useEffect(() => {
-    localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(state));
-  }, [state])
-  
-  /* Add expression-session user to context if is logged in */
-  useEffect(() => {
-    async function addSessionUserToContext() {
-      try {
-        const response = await axios.get(`/auth/user`);
-        addUserToContext(response.data.user);
-      } catch (error) {
-        authError(error.message);
-      }
-    }
-
-    addSessionUserToContext();
-  }, []);
 
   return (
     <Context.Provider value={{
-        state, dispatch, 
+        state, 
         addUserToContext, authError, deAuthenticate,
         showLoader, hideLoader,
         toggleDrawer, closeDrawer,
-        toggleSideMenu, closeSideMenu
-    }}>
+        toggleSideMenu, closeSideMenu}}>
       {children}
     </Context.Provider>
   )
