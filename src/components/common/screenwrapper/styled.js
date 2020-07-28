@@ -17,6 +17,6 @@ export const StyledScreenWrapper = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.colors.primary };
     outline: 3px solid slategrey;
-    border-radius: 5px;
+    /* border-radius: 5px; */
   }
 `;

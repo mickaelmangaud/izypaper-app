@@ -4,6 +4,7 @@ import { images } from '../../assets';
 export const LoginWrapper = styled.div`
   display: flex;
   height: 100vh;
+  background-color: ${({ theme }) => theme.colors.primary};
   background-image: url(${images.background});
   background-size: cover;
   background-repeat: no-repeat;
