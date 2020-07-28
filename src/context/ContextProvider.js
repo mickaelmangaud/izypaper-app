@@ -1,4 +1,5 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, {  useReducer, useEffect } from 'react';
+import { Context, defaultValue } from './context';
 import { reducer } from './reducer';
 import { axios } from '../utils';
 import { 
@@ -8,18 +9,6 @@ import {
   TOGGLE_SIDE_MENU, CLOSE_SIDE_MENU,
 } from './actions';
 
-const defaultValue = {
-  loaderDisplayed: false,
-  sideMenuOpen: false,
-  drawerOpen: false,
-  auth: {
-    isAuthenticated: false,
-    user: null,
-    error: null,
-  },
-};
-
-export const Context = createContext(defaultValue);
 
 export const ContextProvider =  ({ children }) => {
   const [state, dispatch] = useReducer(
@@ -27,7 +16,7 @@ export const ContextProvider =  ({ children }) => {
     JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue
   );
 
-  /* Saves state in localStorage on updates */
+  /* Saves state in localStorage on changes */
   useEffect(() => {
     localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(state));
   }, [state])

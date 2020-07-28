@@ -20,66 +20,56 @@ export const Register = () => {
   };
 
   const [createUser] = useMutation(CREATE_USER_QUERY, {
-    onError: err => setErrors(err.message),
+    onError: err => {
+      console.log('CREATEUSER ERROR :', err)
+      setErrors(err.message);
+    },
   });
 
   const handleSubmitRegister = e => {
-    // TODO: validate payload
-
+    // TODO: valider identifiants
     e.preventDefault();
     createUser({ variables: formFields });
   };
 
   return (
     <RegisterWrapper>
-      <div className="register-wrapper">
-        <div className="form-wrapper">
-          <form onSubmit={handleSubmitRegister}>
-            <h1>IZYPAPER - Inscription</h1>
-            <Input 
-              name="firstName"
-              label="Prénom"
-              type="text"
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            <Input 
-              name="lastName"
-              label="Nom"
-              type="text"
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            <Input 
-              name="email"
-              label="Adresse email"
-              type="text"
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            <Input 
-              name="password"
-              label="Mot de passe"
-              type="password"
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            <Input 
-              name="password_confirmation"
-              label="Confirmation du mot de passe"
-              type="password"
-              onChange={handleInputChange}
-              className="form-input"
-            />
+     <div className="wrapper">
+      <form onSubmit={handleSubmitRegister}>
+        <h1>IZYPAPER Inscription</h1>
+        <Input 
+          label="Adresse mail"
+          type="text"
+          value={formFields.email}
+          onChange={handleInputChange}
+          name="email"
+          error={false}
+        />
 
-            <Button 
-              label="Je m'inscris !"
-              className="register-btn"
-            />
-          </form>
-          {!!errors && <p>{errors}</p>}
-        </div>
-      </div>
+        <Input 
+          label="Mot de passe"
+          type="password"
+          value={formFields.password}
+          onChange={handleInputChange}
+          name="password"
+          error={false}
+        />
+
+        <Input 
+          label="Confirmation du mot de passe"
+          type="password"
+          value={formFields.password_confirmation}
+          onChange={handleInputChange}
+          name="password_confirmation"
+          error={false}
+        />
+        <Button 
+          label="Je m'inscris !"
+          className="register-btn"
+          onClick={handleSubmitRegister}
+        />
+      </form>
+     </div>
     </RegisterWrapper>
   )
 };

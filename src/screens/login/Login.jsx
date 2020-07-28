@@ -39,7 +39,6 @@ export const Login = () => {
       })
       .catch(err => {
         if (!!err.response && err.response.status === 401) {
-          console.log(`Login Error :`, err);
           setErrors({ credentials: 'Identifiants incorrects' });
         }
       });
@@ -105,11 +104,11 @@ export const Login = () => {
             )}
           </div>
         </form>
-            {/* <Button 
-              disabled={true}
-              label={'Se connecter avec Google'}
-              onClick={loginWithGoogle}
-            /> */}
+        {/* <Button 
+          disabled={true}
+          label={'Se connecter avec Google'}
+          onClick={loginWithGoogle}
+        /> */}
       </div>
     </LoginWrapper>
   )
