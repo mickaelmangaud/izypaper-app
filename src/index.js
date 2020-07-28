@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 WebFont.load({
   google: {
     families: [
-      'Ubuntu:300,400,700',
+      'Ubuntu:400,700',
       'Lato:400',
       'Boogaloo',
       'Merienda One',
