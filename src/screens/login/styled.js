@@ -15,12 +15,12 @@ export const LoginWrapper = styled.div`
   }
 
   .back-arrow {
+    z-index: 10;
     position: absolute;
     left: 5%;
     top: 3%;
     display: flex;
     cursor: pointer;
-      
 
     .material-icons {
       color: white;
@@ -76,11 +76,12 @@ export const LoginWrapper = styled.div`
       position: relative;
       
       @media (max-width: 768px) {
-        padding: 5% 15%;
+        padding: 24px;
+        padding-top: 30%;
         box-shadow: none;
         width: 100%;
         min-width: initial;
-        margin-top: 30%;
+        height: 100%;
       }
 
       h1 {
