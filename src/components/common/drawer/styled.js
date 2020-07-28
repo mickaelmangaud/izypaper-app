@@ -55,10 +55,10 @@ export const DrawerWrapper = styled.div`
       font-size: 24px;
     }
 
-    .description {
+    .email {
       font-family: 'Boogaloo', sans-serif;
       font-size: 18px;
-      color: rgba(0,0,0,.5);
+      color: rgb(4, 139, 154);
     }
   }
 

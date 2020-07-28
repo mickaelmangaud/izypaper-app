@@ -29,7 +29,7 @@ export const Drawer = () => {
       <div className="userinfos">
         <img src={images.avatar} alt="user avatar" className="avatar"/>
         <h1 className="username">{!!data && `${data.currentUser.firstName} ${data.currentUser.lastName}`}</h1>
-        <p className="description">Juriste chez Izypaper</p>
+        <p className="email">{!!data && `${data.currentUser.email}`}</p>
       </div>
 
       <div className="content">
@@ -48,6 +48,7 @@ const APOLLO_QUERY = gql`
     currentUser {
       firstName
       lastName
+      email
     }
   }
 `;

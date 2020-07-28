@@ -62,16 +62,16 @@ export const Login = () => {
       <div 
         className="back-arrow"
         onClick={handleBackToWebsite}>
-
         <span className="material-icons">
           keyboard_arrow_left
         </span>
         <p>Retour au site web</p>
-      
       </div>
+
       <div className="infos">
-        
+
       </div>
+
       <div className="form-wrapper">
         <form onSubmit={login}>
           <h1>Connexion</h1>
