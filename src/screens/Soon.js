@@ -13,7 +13,7 @@ export const Soon = () => {
             fontSize: '120px',
             color: 'white'
         }}>
-            Bientot
+            Bientôt
         </div>
     )
 }
