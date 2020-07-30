@@ -67,15 +67,6 @@ export const DrawerWrapper = styled.div`
   }
 
   .footer {
-    display: flex;
-    padding: 12px;
-    justify-content: flex-end;
-    align-items: center;
-
-    p {
-      font-size: 14px;
-      cursor: pointer;
-      font-family: 'Ubuntu', sans-serif;
-    }
+    
   }
 `;
