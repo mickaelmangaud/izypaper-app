@@ -20,11 +20,12 @@ export const AppRouter = () => {
   return(
     <BrowserRouter>
       <Switch>
-        {/* <Route exact path="/" component={Login} /> */}
         <Route exact path="/" component={Soon} />
-        {/* <Route exact path="/inscription" component={Register} />
-        <Route exact path="/creer-mon-entreprise" component={CreateBusiness} />
-        <AuthRoute exact path="/dashboard" component={Dashboard} /> */}
+
+        {/* <Route exact path="/" component={Login} /> */}
+        {/* <Route exact path="/inscription" component={Register} /> */}
+        {/* <Route exact path="/creer-mon-entreprise" component={CreateBusiness} /> */}
+        {/* <AuthRoute exact path="/dashboard" component={Dashboard} /> */}
         <Route path="*" component={NotFound404} />
       </Switch>
     </BrowserRouter>
