@@ -2,7 +2,9 @@ import React from 'react';
 import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { persistCache } from 'apollo-cache-persist';
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+
+});
 
 const link = new HttpLink({
   uri: `${process.env.REACT_APP_BASE_API_URL}/graphql`,
@@ -18,8 +20,8 @@ export default class Apollo extends React.Component {
       storage: window.localStorage,
       trigger: 'write', // default
       debounce: 1000, // default for 'write'
-      key: 'izypaper-apollo-cache',
-      debug: true,
+      key: 'izyapollocache',
+      debug: true, // implement node env
     });
   }
 

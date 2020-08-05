@@ -25,8 +25,8 @@ export const ContextProvider =  ({ children }) => {
   useEffect(() => {
     async function addSessionUserToContext() {
       try {
-        const response = await axios.get(`/auth/user`);
-        addUserToContext(response.data.user);
+        const { data } = await axios.get(`/auth/user`);
+        addUserToContext(data);
       } catch (error) {
         authError(error.message);
       }

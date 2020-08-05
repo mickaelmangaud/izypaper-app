@@ -14,7 +14,7 @@ export const Drawer = () => {
       await axios.get(`/auth/logout`);
       deAuthenticate();
       window.localStorage.clear('izycontext');
-      window.localStorage.clear('izypaper-apollo-cache')
+      window.localStorage.clear('izyapollocache')
       window.location.reload();
     } catch (error) {
       authError(error.message);
@@ -54,6 +54,7 @@ export const Drawer = () => {
 const APOLLO_QUERY = gql`
   query {
     currentUser {
+      id
       firstName
       lastName
       email
