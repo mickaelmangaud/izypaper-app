@@ -1,35 +1,10 @@
-import React from 'react';
-import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { persistCache } from 'apollo-cache-persist';
+import { ApolloClient } from '@apollo/client';
+import { cache } from './cache';
+import { link } from './link';
 
-const cache = new InMemoryCache({
-
+export const client = new ApolloClient({ 
+	link,
+	cache,
+	typeDefs: {},
+	resolvers: {}, 
 });
-
-const link = new HttpLink({
-  uri: `${process.env.REACT_APP_BASE_API_URL}/graphql`,
-  credentials: 'include',
-});
-
-const client = new ApolloClient({ cache, link });
-
-export default class Apollo extends React.Component {
-  async componentDidMount() {
-    await persistCache({
-      cache,
-      storage: window.localStorage,
-      trigger: 'write', // default
-      debounce: 1000, // default for 'write'
-      key: 'izyapollocache',
-      debug: true, // implement node env
-    });
-  }
-
-  render() {
-    return (
-      <ApolloProvider client={client} >
-        {this.props.children}
-      </ApolloProvider>
-    )
-  }
-}

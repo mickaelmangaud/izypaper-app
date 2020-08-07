@@ -1,1 +1,1 @@
-export { default as ApolloWrapper } from './client';
+export { default as ApolloWrapper } from './Provider';
