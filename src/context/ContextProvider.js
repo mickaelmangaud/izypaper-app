@@ -16,12 +16,10 @@ export const ContextProvider =  ({ children }) => {
     JSON.parse(localStorage.getItem(process.env.REACT_APP_CONTEXT_NAME)) || defaultValue
   );
 
-  /* Saves state in localStorage on changes */
   useEffect(() => {
     localStorage.setItem(process.env.REACT_APP_CONTEXT_NAME, JSON.stringify(state));
   }, [state])
   
-  /* Add express-session user to context if is logged in */
   useEffect(() => {
     async function addSessionUserToContext() {
       try {
@@ -35,7 +33,6 @@ export const ContextProvider =  ({ children }) => {
     addSessionUserToContext();
   }, []);
 
-  /* Actions */
   const addUserToContext = user => dispatch({ type: ADD_USER_TO_CONTEXT, payload: user });
   const authError = error => dispatch({ type: AUTH_ERROR, payload: error });
   const deAuthenticate = () => dispatch({ type: DE_AUTHENTICATE });
